@@ -1,6 +1,11 @@
 --[[
-lvim is the global options object
-
+{
+  "windwp/nvim-spectre",
+  event = "BufRead",
+  config = function()
+    require("spectre").setup()
+  end,
+},
 Linters should be
 filled in as strings with either
 a global executable or a path to
@@ -8,19 +13,19 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
-vim.env.NEOVIM_NODE_VERSION = '18.13.0'
+-- vim.env.NEOVIM_NODE_VERSION = '18.13.0'
 
-if vim.fn.has('unix') and vim.env.NEOVIM_NODE_VERSION then
-    local node_dir = vim.env.HOME .. '/.asdf/installs/nodejs/' .. vim.env.NEOVIM_NODE_VERSION .. '/bin/'
-    if (vim.fn.isdirectory(node_dir)) then
-        vim.env.PATH = node_dir .. ':' .. vim.env.PATH
-    end
-end
+-- if vim.fn.has('unix') and vim.env.NEOVIM_NODE_VERSION then
+--   local node_dir = vim.env.HOME .. '/.asdf/installs/nodejs/' .. vim.env.NEOVIM_NODE_VERSION .. '/bin/'
+--   if (vim.fn.isdirectory(node_dir)) then
+--     vim.env.PATH = node_dir .. ':' .. vim.env.PATH
+--   end
+-- end
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "dracula"
+lvim.colorscheme = "catppuccin-mocha"
 lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -92,13 +97,14 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
-  "help"
+  "help",
+  "scss"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.rainbow.enable = true
-lvim.builtin.terminal.direction = "horizontal"
+lvim.builtin.terminal.direction = "float"
 lvim.builtin.telescope.defaults.file_ignore_patterns = { "node_modules", ".git", ".cache" }
 
 -- generic LSP settings
@@ -189,7 +195,6 @@ lvim.plugins = {
   {
     "ThePrimeagen/vim-be-good"
   },
-  { "terryma/vim-multiple-cursors" },
   {
     "mrjones2014/nvim-ts-rainbow",
   },
@@ -208,7 +213,47 @@ lvim.plugins = {
       vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
     end,
   },
-
+  {
+    "sindrets/diffview.nvim",
+    event = "BufRead",
+  },
+  { "catppuccin/nvim" },
+  {
+    "itchyny/vim-cursorword",
+    event = { "BufEnter", "BufNewFile" },
+    config = function()
+      vim.api.nvim_command("augroup user_plugin_cursorword")
+      vim.api.nvim_command("autocmd!")
+      vim.api.nvim_command("autocmd FileType NvimTree,lspsagafinder,dashboard,vista let b:cursorword = 0")
+      vim.api.nvim_command("autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif")
+      vim.api.nvim_command("autocmd InsertEnter * let b:cursorword = 0")
+      vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
+      vim.api.nvim_command("augroup END")
+    end
+  },
+  {
+    "nacro90/numb.nvim",
+    event = "BufRead",
+    config = function()
+      require("numb").setup {
+        show_numbers = true,    -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+      }
+    end,
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require('symbols-outline').setup()
+    end
+  },
+  {
+    "windwp/nvim-spectre",
+    event = "BufRead",
+    config = function()
+      require("spectre").setup()
+    end,
+  },
 }
 
 -- Copilot
@@ -239,4 +284,14 @@ end
 --     -- let treesitter use bash highlight for zsh files as well
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
--
+-- })
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "black" },
+  {
+    command = "prettier",
+    args = { "--print-width", "100" },
+    filetypes = { "typescript", "typescriptreact", "scss", "css" },
+  },
+}
