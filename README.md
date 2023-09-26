@@ -10,7 +10,7 @@ Install Yay (Package Manager)
 Install Dependencies
 
     yay -S kitty lsd ttf-jetbrains-mono-nerd.3.0.2-1 
-    neovim unzip ripgrep rofi polybar pauvcontrol ranger zsh
+    neovim unzip ripgrep rofi polybar pauvcontrol ranger zsh feh picom
 ## Shell
 Currently using zsh, with Oh-my-Zsh and Powerlevel10k Theme
 

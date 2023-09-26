@@ -7,13 +7,16 @@ set $sm HDMI-0
 font pango:JetBrains Mono Nerd Fonts, Bold 12
 
 # gaps
-gaps inner 6px
-gaps outer 6px
+gaps inner 0px
+gaps outer 0px
 
 # apps
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
+exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 
 # remove title
 for_window [class="^.*"] border pixel 2
@@ -165,6 +168,3 @@ bindsym $mod+r mode "resize"
 # border color
 # class                 border  backgr. text    indicator child_border
 client.focused          #f5c2e7 #000000 #ffffff #f9e2af   #f5c2e7
-
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
