@@ -1,3 +1,6 @@
+#swap Caps and Escape
+exec_always --no-startup-id setxkbmap -option caps:swapescape
+
 # variables
 set $mod Mod4
 set $fm DP-0
@@ -15,11 +18,12 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
+exec_always --no-startup-id playerctld daemon
 
 # remove title
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -44,6 +48,9 @@ bindsym $mod+q kill
 # rofi:
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-4/powermenu.sh
+
+# browser
+bindsym $mod+b exec firefox
 
 # change focus
 bindsym $mod+h focus left
@@ -95,6 +102,16 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -107,6 +124,16 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym Mod1+1 workspace number $ws11
+bindsym Mod1+2 workspace number $ws12
+bindsym Mod1+3 workspace number $ws13
+bindsym Mod1+4 workspace number $ws14
+bindsym Mod1+5 workspace number $ws15
+bindsym Mod1+6 workspace number $ws16
+bindsym Mod1+7 workspace number $ws17
+bindsym Mod1+8 workspace number $ws18
+bindsym Mod1+9 workspace number $ws19
+bindsym Mod1+0 workspace number $ws20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -121,7 +148,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # workpaces monitor
-workspace 1 output $sm
+workspace 1 output $fm
 workspace 2 output $fm
 workspace 3 output $fm
 workspace 4 output $fm
@@ -130,6 +157,17 @@ workspace 6 output $fm
 workspace 7 output $fm
 workspace 8 output $fm
 workspace 9 output $fm
+workspace 10 output $fm
+workspace 11 output $sm
+workspace 12 output $sm
+workspace 13 output $sm
+workspace 14 output $sm
+workspace 15 output $sm
+workspace 16 output $sm
+workspace 17 output $sm
+workspace 18 output $sm
+workspace 19 output $sm
+workspace 20 output $sm
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
