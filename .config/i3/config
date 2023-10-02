@@ -10,19 +10,21 @@ set $sm HDMI-0
 font pango:JetBrains Mono Nerd Fonts, Bold 12
 
 # gaps
-gaps inner 0px
-gaps outer 0px
+gaps inner 4px
+gaps outer 4px
 
 # apps
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id setxkbmap -layout "us,br"  -option grp:shifts_toggle
 exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
+# exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/wallhaven-2y2ymx.jpg 
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id playerctld daemon
 
-# remove title
+# remove title and border
 for_window [class="^.*"] border pixel 0
 
 # Use pactl to adjust volume in PulseAudio.
@@ -30,7 +32,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMute exec playerctl play-pause && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id playerctl play-pause && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -47,8 +49,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # rofi:
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-4/powermenu.sh
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-5/launcher.sh
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-3/powermenu.sh
 
 # browser
 bindsym $mod+b exec firefox
