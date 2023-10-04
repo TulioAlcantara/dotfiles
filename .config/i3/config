@@ -17,12 +17,11 @@ gaps outer 4px
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id setxkbmap -layout "us,br"  -option grp:shifts_toggle
-exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
+exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/wallhaven-2y2ymx.jpg 
-exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
-exec_always --no-startup-id playerctld daemon
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Wallpapers/* 
+exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
+exec --no-startup-id playerctld daemon
 
 # remove title and border
 for_window [class="^.*"] border pixel 0
