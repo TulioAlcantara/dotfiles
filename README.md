@@ -9,7 +9,7 @@ Install Yay (Package Manager)
      makepkg -si
 Install Dependencies
 
-    yay -S kitty lsd ttf-jetbrains-mono-nerd.3.0.2-1 neovim unzip ripgrep rofi polybar pauvcontrol ranger zsh feh picom playerctl xdg-desktop-portal 
+    yay -S firefox kitty lsd ttf-jetbrains-mono-nerd.3.0.2-1 neovim unzip ripgrep rofi polybar dunst pauvcontrol ranger zsh feh picom playerctl xdg-desktop-portal betterlockscreen thunderbird cider steam discord
 
 ## Shell
 Currently using zsh, with Oh-my-Zsh and Powerlevel10k Theme
