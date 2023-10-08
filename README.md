@@ -27,3 +27,6 @@ Currently using asdf
     
  Just need to clone the repo, since we've already added the asdf plugin to our .zshrc file Essential Packages
 
+## Misc Dependencies
+### Polybar
+- [i3-window-title](https://github.com/nekowinston/i3-window-title)
