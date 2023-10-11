@@ -13,34 +13,20 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
   'nvim-treesitter/nvim-treesitter',
-
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  'neovim/nvim-lspconfig',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  'folke/which-key.nvim',
+  'lewis6991/gitsigns.nvim',
+  'numToStr/Comment.nvim',
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+  {'nvim-telescope/telescope.nvim', tag = '0.1.3', dependencies = 'nvim-lua/plenary.nvim'},
   {'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-  {'nvim-telescope/telescope.nvim', tag = '0.1.3', dependencies = { 'nvim-lua/plenary.nvim' }},
-  {'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', 
-      'nvim-tree/nvim-web-devicons', 
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-      animation = false,
-      insert_at_start = false,
-    },
-    version = '^1.0.0', 
-  },
-  {'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-  {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-  opts = {}
-  }
+  {'windwp/nvim-autopairs', event = "InsertEnter", opts = {}},
 }
 
 require('lazy').setup(plugins, opts)
