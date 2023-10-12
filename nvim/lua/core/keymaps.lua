@@ -1,15 +1,16 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local t_opts = { noremap = true }
 
 -- Leader
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' ' 
+vim.g.maplocalleader = ' '
 
 --------------------------------
 --           NORMAL           --
 --------------------------------
 
--- Navigation 
+-- Navigation
 keymap('n', '<C-h>', '<C-w>h', opts)
 keymap('n', '<C-j>', '<C-w>j', opts)
 keymap('n', '<C-k>', '<C-w>k', opts)
@@ -29,7 +30,7 @@ keymap('n', '<S-l>', ':bnext<CR>', opts)
 keymap('n', '<c-s>', ':w!<CR>', opts)
 
 -- Close Buffer
-keymap('n', 'q', ':q!<CR>', opts)
+keymap('n', 'q', '<cmd>:bd|bp<CR>', opts)
 
 --------------------------------
 --           INSERT           --
@@ -51,7 +52,7 @@ keymap('v', 'p', "'_dP", opts)
 keymap('v', 'p', "'_dP", opts)
 
 --------------------------------
---           VISUAL BLOCK           --
+--        VISUAL BLOCK        --
 --------------------------------
 
 -- Move text up and down
@@ -60,3 +61,13 @@ keymap('x', 'K', ":m '<-2<CR>gv=gv", opts)
 keymap('x', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 keymap('x', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 
+
+--------------------------------
+--           TERMINAL         --
+--------------------------------
+
+-- Navigation
+keymap('t', '<C-h>', '<C-\\><C-N><C-w>h', t_opts)
+keymap('t', '<C-j>', '<C-\\><C-N><C-w>j', t_opts)
+keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', t_opts)
+keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', t_opts)

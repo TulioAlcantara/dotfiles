@@ -21,12 +21,12 @@ local mappings = {
   ['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
   ['w'] = { '<cmd>w!<CR>', 'Save' },
   ['q'] = { '<cmd>q!<CR>', 'Quit' },
-  ['c'] = { '<cmd>bdelete!<CR>', 'Close Buffer' },
-  ['h'] = { '<cmd>nohlsearch<CR>', 'No Highlight' },
   ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
+  ["v"] = { "<cmd>vsplit<CR>", "Vertical Split" },
+  ["h"] = { "<cmd>split<CR>", "Horizontal Split" },
 
   f = {
-    name = 'File', 
+    name = 'File',
     g = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
     b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
     h = { '<cmd>Telescope help_tags<cr>', 'Help' },
