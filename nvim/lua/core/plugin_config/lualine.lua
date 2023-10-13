@@ -4,13 +4,13 @@ require('lualine').setup {
     theme = 'auto',
     disabled_filetypes = { 'toggleterm', 'NvimTree' }
   },
-    sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'searchcount', 'filetype'},
-    lualine_y = {''},
-    lualine_z = {'location'}
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'searchcount' },
+    lualine_y = { 'filetype' },
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {},
