@@ -25,6 +25,8 @@ local plugins = {
 	'onsails/lspkind.nvim',
 	'folke/trouble.nvim',
 	'kdheepak/lazygit.nvim',
+	'max397574/better-escape.nvim',
+	'tpope/vim-fugitive',
 	{ 'akinsho/toggleterm.nvim', version = '*', config = true },
 	{ 'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons' },
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.3', dependencies = 'nvim-lua/plenary.nvim' },
