@@ -10,8 +10,9 @@ font pango:JetBrains Mono Nerd Fonts, Bold 12
 gaps inner 0px
 gaps outer 0px
 
-# remove title and border
-for_window [class="^.*"] border pixel 1
+# title and border
+for_window [class="^.*"] border pixel 2
+smart_borders on
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -34,7 +35,7 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+q kill
 
-# rofi:
+# rofi
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-3/powermenu.sh
 
@@ -80,8 +81,12 @@ bindsym $mod+Shift+space floating toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# move to next/previous workspace
+bindsym $mod+ctrl+l workspace next
+bindsym $mod+ctrl+h workspace prev
+
 # workspaces
-set $ws1 "1"
+set $ws1 "1" 
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
@@ -159,11 +164,13 @@ workspace 19 output $sm
 workspace 20 output $sm
 
 # workspace related apps
-
 for_window [class="firefox"] move to workspace 2
-assign [class="thunderbird"] 3
-assign [class="steam"] 4
+for_window [class="Cider"] move to workspace 3
+assign [class="thunderbird"] 10
 for_window [class="discord"] move to workspace 5
+assign [class="steam"] 6
+# for_window [class="Lutris"] floating enable
+# for_window [class="Wine"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -174,24 +181,16 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym j resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -207,9 +206,9 @@ client.focused          #f5c2e7 #000000 #ffffff #f9e2af   #f5c2e7
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id setxkbmap -layout "us,br"  -option grp:shifts_toggle
-exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/wallhaven-zy988j.png 
-exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
+exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
+exec_always --no-startup-id feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* 
+exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec --no-startup-id playerctld daemon
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -218,3 +217,4 @@ exec --no-startup-id thunderbird
 exec --no-startup-id steam
 exec --no-startup-id discord --enable-gpu-rasterization
 exec --no-startup-id firefox
+exec --no-startup-id cider

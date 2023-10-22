@@ -27,6 +27,7 @@ local plugins = {
 	'kdheepak/lazygit.nvim',
 	'max397574/better-escape.nvim',
 	'tpope/vim-fugitive',
+	'mg979/vim-visual-multi',
 	{ 'akinsho/toggleterm.nvim', version = '*', config = true },
 	{ 'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons' },
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.3', dependencies = 'nvim-lua/plenary.nvim' },
@@ -51,6 +52,15 @@ local plugins = {
 			'williamboman/mason.nvim',
 			'nvimtools/none-ls.nvim',
 		},
+	},
+	{
+		'iamcco/markdown-preview.nvim',
+		cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+		build = 'cd app && yarn install',
+		init = function()
+			vim.g.mkdp_filetypes = { 'markdown' }
+		end,
+		ft = { 'markdown' },
 	},
 }
 

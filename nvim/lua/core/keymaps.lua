@@ -40,7 +40,7 @@ keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
 --------------------------------
 
 -- Save Buffer
-keymap('i', '<c-s>', '<Esc>:w!<CR>', opts)
+-- keymap('i', '<c-s>', '<Esc>:w!<CR>', opts)
 
 --------------------------------
 --           VISUAL           --
@@ -49,7 +49,6 @@ keymap('i', '<c-s>', '<Esc>:w!<CR>', opts)
 -- Move text up and down
 keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
-keymap('v', 'p', "'_dP", opts)
 
 -- Paste over currently selected text without yanking it
 keymap('v', 'p', "'_dP", opts)
