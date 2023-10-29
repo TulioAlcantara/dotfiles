@@ -41,6 +41,7 @@ local mappings = {
 		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
 		h = { '<cmd>Telescope help_tags<cr>', 'Help' },
 		f = { '<cmd>Telescope find_files<cr>', 'File' },
+		r = { '<cmd>Telescope oldfiles<cr>', 'Recent Files' },
 	},
 
 	g = {
@@ -51,8 +52,8 @@ local mappings = {
 		C = { '<cmd>Telescope git_commits<cr>', 'Checkout Commit' },
 		c = { '<cmd>Git commit<cr>', 'Commit' },
 		a = { '<cmd>Git add .<cr>', 'Add' },
-		p = { '<cmd>Git push<cr>', 'Push' },
-		P = { '<cmd>Git pull<cr>', 'Pull' },
+		P = { '<cmd>Git push<cr>', 'Push' },
+		p = { '<cmd>Git pull<cr>', 'Pull' },
 	},
 
 	l = {

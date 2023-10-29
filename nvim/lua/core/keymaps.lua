@@ -51,7 +51,7 @@ keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 
 -- Paste over currently selected text without yanking it
-keymap('v', 'p', "'_dP", opts)
+keymap('v', 'p', '"_dP', opts)
 
 --------------------------------
 --        VISUAL BLOCK        --
