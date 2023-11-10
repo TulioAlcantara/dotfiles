@@ -39,9 +39,6 @@ keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
 --           INSERT           --
 --------------------------------
 
--- Save Buffer
--- keymap('i', '<c-s>', '<Esc>:w!<CR>', opts)
-
 --------------------------------
 --           VISUAL           --
 --------------------------------

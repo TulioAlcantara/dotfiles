@@ -24,6 +24,12 @@ local mappings = {
 	['v'] = { '<cmd>vsplit<CR>', 'Vertical Split' },
 	['h'] = { '<cmd>split<CR>', 'Horizontal Split' },
 	['p'] = { '<cmd>Lazy<CR>', 'Package Manager (Lazy)' },
+	['s'] = {
+		function()
+			require('flash').jump()
+		end,
+		'Search (Flash)',
+	},
 
 	t = {
 		name = 'Troubleshoot',
@@ -41,7 +47,8 @@ local mappings = {
 		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
 		h = { '<cmd>Telescope help_tags<cr>', 'Help' },
 		f = { '<cmd>Telescope find_files<cr>', 'File' },
-		r = { '<cmd>Telescope oldfiles<cr>', 'Recent Files' },
+		F = { '<cmd>Telescope oldfiles<cr>', 'Recent Files' },
+		r = { '<cmd>Telescope resume<cr>', 'Resume' },
 	},
 
 	g = {
@@ -52,7 +59,6 @@ local mappings = {
 		C = { '<cmd>Telescope git_commits<cr>', 'Checkout Commit' },
 		c = { '<cmd>Git commit<cr>', 'Commit' },
 		a = { '<cmd>Git add .<cr>', 'Add' },
-		P = { '<cmd>Git push<cr>', 'Push' },
 		p = { '<cmd>Git pull<cr>', 'Pull' },
 	},
 
