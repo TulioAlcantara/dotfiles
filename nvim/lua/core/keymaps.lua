@@ -27,7 +27,7 @@ keymap('n', '<S-h>', ':bprevious<CR>', opts)
 keymap('n', '<S-l>', ':bnext<CR>', opts)
 
 -- Save Buffer
-keymap('n', '<c-s>', ':w!<CR>', opts)
+keymap('n', '<c-s>', ':silent w!<CR>', opts)
 
 -- Close Buffer
 keymap('n', 'q', '<cmd>:bd|bp<CR>', opts)

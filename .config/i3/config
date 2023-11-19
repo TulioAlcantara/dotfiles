@@ -4,13 +4,13 @@ set $fm DP-0
 set $sm HDMI-0
 
 # font
-font pango:JetBrains Mono Nerd Fonts, Bold 12
+font pango:JetBrains Mono Nerd Fonts, Normal 14
 
 # gaps
 gaps inner 0px
 
 # title and border
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
 smart_borders on
 
 # Use pactl to adjust volume in PulseAudio.
@@ -35,10 +35,13 @@ bindsym $mod+q kill
 
 # rofi
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-3/powermenu.sh
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
 
 # browser
 bindsym $mod+b exec firefox
+
+# printscreen
+bindsym $mod+p exec maim ~/Pictures/Prints/$(date +%s).png
 
 # change focus
 bindsym $mod+h focus left
@@ -70,7 +73,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout default
+bindsym $mod+d layout default
 bindsym $mod+v split toggle
 
 # toggle tiling / floating

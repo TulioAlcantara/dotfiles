@@ -18,32 +18,43 @@ local vopts = {
 
 local mappings = {
 	['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
-	['w'] = { '<cmd>w!<CR>', 'Save' },
-	['q'] = { '<cmd>q!<CR>', 'Quit' },
-	['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment toggle current line' },
-	['v'] = { '<cmd>vsplit<CR>', 'Vertical Split' },
-	['h'] = { '<cmd>split<CR>', 'Horizontal Split' },
-	['p'] = { '<cmd>Lazy<CR>', 'Package Manager (Lazy)' },
-	['s'] = {
-		function()
-			require('flash').jump()
-		end,
-		'Search (Flash)',
-	},
+	['w'] = { '<cmd>w!<cr>', 'Save' },
+	['q'] = { '<cmd>qa!<cr>', 'Quit' },
+	['s'] = { '<cmd>vsplit<CR>', 'Split' },
+	['p'] = { '<cmd>Lazy<cr>', 'Package Manager (Lazy)' },
+	['c'] = { '<cmd>nohl<cr>', 'Clear Search' },
+	['t'] = { '<cmd>TroubleToggle<cr>', 'Troubleshoot' },
+	['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
+	-- ['s'] = {
+	-- 	function()
+	-- 		require('flash').jump()
+	-- 	end,
+	-- 	'Search (Flash)',
+	-- },
 
-	t = {
-		name = 'Troubleshoot',
-		t = { '<cmd>TroubleToggle<cr>', 'Toggle' },
-		w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace' },
-		d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document' },
-		-- q = { '<cmd>TroubleToggle quickfix<cr>', 'Quickfix' },
-		-- l = { '<cmd>TroubleToggle loclist<cr>', 'Location List' },
-		-- r = { '<cmd>TroubleToggle lsp_references<cr>', 'References' },
+	-- t = {
+	-- 	name = 'Troubleshoot',
+	-- 	t = { '<cmd>TroubleToggle<cr>', 'Toggle' },
+	-- 	w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace' },
+	-- 	d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document' },
+	-- q = { '<cmd>TroubleToggle quickfix<cr>', 'Quickfix' },
+	-- l = { '<cmd>TroubleToggle loclist<cr>', 'Location List' },
+	-- r = { '<cmd>TroubleToggle lsp_references<cr>', 'References' },
+	-- },
+
+	h = {
+		name = 'Harpoon',
+		h = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', 'Toggle Quick Menu' },
+		a = { '<cmd>lua require("harpoon.mark").add_file()<cr>', 'Add Buffer' },
+		c = { '<cmd>lua require("harpoon.mark").clear_all()<cr>', 'Clear All' },
+		n = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', 'Next' },
+		p = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', 'Previous' },
 	},
 
 	f = {
-		name = 'File',
-		g = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
+		name = 'Find',
+
+		g = { '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', 'Live Grep' },
 		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
 		h = { '<cmd>Telescope help_tags<cr>', 'Help' },
 		f = { '<cmd>Telescope find_files<cr>', 'File' },
@@ -55,11 +66,7 @@ local mappings = {
 		name = 'Git',
 		g = { '<cmd>LazyGit<cr>', 'LazyGit' },
 		s = { '<cmd>Telescope git_status<cr>', 'Status' },
-		b = { '<cmd>Telescope git_branches<cr>', 'Checkout Branch' },
-		C = { '<cmd>Telescope git_commits<cr>', 'Checkout Commit' },
-		c = { '<cmd>Git commit<cr>', 'Commit' },
-		a = { '<cmd>Git add .<cr>', 'Add' },
-		p = { '<cmd>Git pull<cr>', 'Pull' },
+		f = { '<cmd>DiffviewFileHistory %<cr>', 'File History' },
 	},
 
 	l = {
@@ -71,9 +78,7 @@ local mappings = {
 	},
 }
 
-local vmappings = {
-	['/'] = { '<Plug>(comment_toggle_linewise_visual)', 'Comment toggle linewise (visual)' },
-}
+local vmappings = {}
 
 local which_key = require('which-key')
 which_key.setup()

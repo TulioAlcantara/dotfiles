@@ -3,9 +3,10 @@
 --------------------------------
 
 local lsp_zero = require('lsp-zero')
+local navic = require('nvim-navic')
 
 lsp_zero.on_attach(function(client, bufnr)
-	lsp_zero.default_keymaps({ buffer = bufnr })
+	lsp_zero.default_keymaps({ buffer = bufnr, preserve_mapping = false })
 	lsp_zero.buffer_autoformat()
 end)
 
@@ -16,27 +17,31 @@ lsp_zero.set_sign_icons({
 	info = '»',
 })
 
+require('lspconfig').clangd.setup({
+	on_attach = function(client, bufnr)
+		navic.attach(client, bufnr)
+	end,
+})
+
+-- Disable formatting for some LSPs
 require('lspconfig').tsserver.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
 })
-
 require('lspconfig').cssls.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
 })
-
 require('lspconfig').volar.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
 })
-
 require('lspconfig').jsonls.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
@@ -45,7 +50,6 @@ require('lspconfig').jsonls.setup({
 })
 
 require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
-
 lsp_zero.setup()
 
 --------------------------------
@@ -112,7 +116,6 @@ null_ls.setup({
 				PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.config/nvim/.prettierrc.json'),
 			},
 		}),
-		-- null_ls.builtins.diagnostics.eslint_d,
 		null_ls.builtins.formatting.stylua,
 	},
 })
