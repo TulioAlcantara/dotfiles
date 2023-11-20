@@ -35,7 +35,7 @@ for k, v in pairs(options) do
 end
 
 -- set node version to asdf
--- local home_dir = '/home/tulio'
--- local node_bin = '/.asdf/installs/nodejs/20.7.0/bin'
--- vim.g.node_host_prog = home_dir .. node_bin .. '/node'
--- vim.cmd("let $PATH = '" .. home_dir .. node_bin .. ":' . $PATH")
+local home_dir = '/home/tulio'
+local node_bin = '/.asdf/installs/nodejs/20.7.0/bin'
+vim.g.node_host_prog = home_dir .. node_bin .. '/node'
+vim.cmd("let $PATH = '" .. home_dir .. node_bin .. ":' . $PATH")

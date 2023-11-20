@@ -16,14 +16,13 @@ local plugins = {
 	--        DECORATION          --
 	--------------------------------
 
-	'nvim-tree/nvim-tree.lua',
 	'lewis6991/gitsigns.nvim',
 	'nvim-tree/nvim-web-devicons',
 	'SmiteshP/nvim-navic',
 	'MunifTanjim/nui.nvim',
-	'rcarriga/nvim-notify',
 	'folke/zen-mode.nvim',
 	'folke/twilight.nvim',
+	'nvim-tree/nvim-tree.lua',
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
@@ -50,8 +49,15 @@ local plugins = {
 	},
 	{
 		'windwp/nvim-ts-autotag',
-		-- opts = {},
+		opts = {},
 	},
+	-- {
+	-- 	'folke/noice.nvim',
+	-- 	event = 'VeryLazy',
+	-- 	dependencies = {
+	-- 		'rcarriga/nvim-notify',
+	-- 	},
+	-- },
 
 	--------------------------------
 	--          GIT               --
@@ -137,6 +143,7 @@ local plugins = {
 	--------------------------------
 
 	'github/copilot.vim',
+	'epwalsh/obsidian.nvim',
 	{
 		'iamcco/markdown-preview.nvim',
 		cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
@@ -145,11 +152,6 @@ local plugins = {
 			vim.g.mkdp_filetypes = { 'markdown' }
 		end,
 		ft = { 'markdown' },
-	},
-	{
-		'folke/noice.nvim',
-		event = 'VeryLazy',
-		opts = {},
 	},
 	-- {
 	-- 	'm4xshen/hardtime.nvim',

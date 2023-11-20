@@ -24,6 +24,13 @@ require('lualine').setup({
 					alternate_file = '',
 					directory = '',
 				},
+				filetype_names = {
+					TelescopePrompt = 'Telescope',
+					dashboard = 'Dashboard',
+					NvimTree = 'File Explorer',
+					lazy = 'Lazy',
+				},
+				max_length = vim.o.columns * 2 / 2,
 			},
 		},
 		lualine_b = {},
