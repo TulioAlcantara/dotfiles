@@ -51,13 +51,13 @@ local plugins = {
 		'windwp/nvim-ts-autotag',
 		opts = {},
 	},
-	-- {
-	-- 	'folke/noice.nvim',
-	-- 	event = 'VeryLazy',
-	-- 	dependencies = {
-	-- 		'rcarriga/nvim-notify',
-	-- 	},
-	-- },
+	{
+		'goolord/alpha-nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		config = function()
+			require('alpha').setup(require('alpha.themes.startify').config)
+		end,
+	},
 
 	--------------------------------
 	--          GIT               --
@@ -93,16 +93,6 @@ local plugins = {
 			},
 		},
 	},
-	-- {
-	-- 	'folke/flash.nvim',
-	-- 	opts = {
-	-- 		modes = {
-	-- 			char = {
-	-- 				jump_labels = true,
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
 
 	--------------------------------
 	--            LSP             --
@@ -153,10 +143,6 @@ local plugins = {
 		end,
 		ft = { 'markdown' },
 	},
-	-- {
-	-- 	'm4xshen/hardtime.nvim',
-	-- 	opts = {},
-	-- },
 }
 
 require('lazy').setup(plugins)

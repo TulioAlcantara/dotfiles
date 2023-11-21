@@ -1,81 +1,74 @@
 local opts = {
-	mode = 'n',
-	prefix = '<leader>',
-	buffer = nil,
-	silent = true,
-	noremap = true,
-	nowait = true,
+  mode = 'n',
+  prefix = '<leader>',
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
 }
 
 local vopts = {
-	mode = 'v',
-	prefix = '<leader>',
-	buffer = nil,
-	silent = true,
-	noremap = true,
-	nowait = true,
+  mode = 'v',
+  prefix = '<leader>',
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
 }
 
 local mappings = {
-	['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
-	['w'] = { '<cmd>w!<cr>', 'Save' },
-	['q'] = { '<cmd>qa!<cr>', 'Quit' },
-	['s'] = { '<cmd>vsplit<CR>', 'Split' },
-	['p'] = { '<cmd>Lazy<cr>', 'Package Manager (Lazy)' },
-	['c'] = { '<cmd>nohl<cr>', 'Clear Search' },
-	['t'] = { '<cmd>TroubleToggle<cr>', 'Troubleshoot' },
-	['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
-	-- ['s'] = {
-	-- 	function()
-	-- 		require('flash').jump()
-	-- 	end,
-	-- 	'Search (Flash)',
-	-- },
+  ['e'] = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
+  ['w'] = { '<cmd>w!<cr>', 'Save' },
+  ['q'] = { '<cmd>qa!<cr>', 'Quit' },
+  ['s'] = { '<cmd>vsplit<CR>', 'Split' },
+  ['p'] = { '<cmd>Lazy<cr>', 'Package Manager (Lazy)' },
+  ['c'] = { '<cmd>nohl<cr>', 'Clear Search' },
+  ['t'] = { '<cmd>TroubleToggle<cr>', 'Troubleshoot' },
+  ['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
 
-	-- t = {
-	-- 	name = 'Troubleshoot',
-	-- 	t = { '<cmd>TroubleToggle<cr>', 'Toggle' },
-	-- 	w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace' },
-	-- 	d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document' },
-	-- q = { '<cmd>TroubleToggle quickfix<cr>', 'Quickfix' },
-	-- l = { '<cmd>TroubleToggle loclist<cr>', 'Location List' },
-	-- r = { '<cmd>TroubleToggle lsp_references<cr>', 'References' },
-	-- },
+  -- t = {
+  -- 	name = 'Troubleshoot',
+  -- 	t = { '<cmd>TroubleToggle<cr>', 'Toggle' },
+  -- 	w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace' },
+  -- 	d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document' },
+  -- q = { '<cmd>TroubleToggle quickfix<cr>', 'Quickfix' },
+  -- l = { '<cmd>TroubleToggle loclist<cr>', 'Location List' },
+  -- r = { '<cmd>TroubleToggle lsp_references<cr>', 'References' },
+  -- },
 
-	h = {
-		name = 'Harpoon',
-		h = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', 'Toggle Quick Menu' },
-		a = { '<cmd>lua require("harpoon.mark").add_file()<cr>', 'Add Buffer' },
-		c = { '<cmd>lua require("harpoon.mark").clear_all()<cr>', 'Clear All' },
-		n = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', 'Next' },
-		p = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', 'Previous' },
-	},
+  h = {
+    name = 'Harpoon',
+    h = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', 'Toggle Quick Menu' },
+    a = { '<cmd>lua require("harpoon.mark").add_file()<cr>', 'Add Buffer' },
+    c = { '<cmd>lua require("harpoon.mark").clear_all()<cr>', 'Clear All' },
+    n = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', 'Next' },
+    p = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', 'Previous' },
+  },
 
-	f = {
-		name = 'Find',
+  f = {
+    name = 'Find',
+    g = { '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', 'Live Grep' },
+    b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
+    h = { '<cmd>Telescope help_tags<cr>', 'Help' },
+    f = { '<cmd>Telescope find_files<cr>', 'File' },
+    o = { '<cmd>Telescope oldfiles<cr>', 'Old Files' },
+    r = { '<cmd>Telescope resume<cr>', 'Resume' },
+  },
 
-		g = { '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', 'Live Grep' },
-		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
-		h = { '<cmd>Telescope help_tags<cr>', 'Help' },
-		f = { '<cmd>Telescope find_files<cr>', 'File' },
-		F = { '<cmd>Telescope oldfiles<cr>', 'Recent Files' },
-		r = { '<cmd>Telescope resume<cr>', 'Resume' },
-	},
+  g = {
+    name = 'Git',
+    g = { '<cmd>LazyGit<cr>', 'LazyGit' },
+    s = { '<cmd>Telescope git_status<cr>', 'Status' },
+    f = { '<cmd>DiffviewFileHistory %<cr>', 'File History' },
+  },
 
-	g = {
-		name = 'Git',
-		g = { '<cmd>LazyGit<cr>', 'LazyGit' },
-		s = { '<cmd>Telescope git_status<cr>', 'Status' },
-		f = { '<cmd>DiffviewFileHistory %<cr>', 'File History' },
-	},
-
-	l = {
-		name = 'LSP',
-		a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
-		r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
-		f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
-		m = { '<cmd>Mason<cr>', 'Mason' },
-	},
+  l = {
+    name = 'LSP',
+    a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
+    r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
+    f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
+    m = { '<cmd>Mason<cr>', 'Mason' },
+  },
 }
 
 local vmappings = {}

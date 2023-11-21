@@ -5,11 +5,11 @@ local HEIGHT_RATIO = 0.8
 local WIDTH_RATIO = 0.8
 
 require('nvim-tree').setup({
-
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
 	},
+
 	renderer = {
 		root_folder_modifier = ':t',
 		icons = {

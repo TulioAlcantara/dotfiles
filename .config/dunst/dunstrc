@@ -90,10 +90,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#89B4FA"
+    frame_color = "#8CAAEE"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -297,6 +297,7 @@
     mouse_middle_click = none
     mouse_right_click = close_all
 
+
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
@@ -306,7 +307,6 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
-
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
