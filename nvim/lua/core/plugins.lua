@@ -23,6 +23,7 @@ local plugins = {
 	'folke/zen-mode.nvim',
 	'folke/twilight.nvim',
 	'nvim-tree/nvim-tree.lua',
+	'Mofiqul/dracula.nvim',
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {

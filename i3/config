@@ -165,11 +165,11 @@ workspace 19 output $sm
 workspace 20 output $sm
 
 # workspace related apps
-for_window [class="Cider"] move to workspace 3
-assign [class="obsidian"] 4
+for_window [class="Cider"] move to workspace 4
+assign [class="obsidian"] 9
 assign [class="thunderbird"] 10
-for_window [class="discord"] move to workspace 5
-assign [class="steam"] 6
+for_window [class="discord"] move to workspace 3
+assign [class="steam"] 5
 # for_window [class="firefox"] move to workspace 2
 # for_window [class="Lutris"] floating enable
 # for_window [class="Wine"] floating enable
