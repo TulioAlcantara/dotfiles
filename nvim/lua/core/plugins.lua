@@ -35,12 +35,14 @@ local plugins = {
 		name = 'catppuccin',
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme catppuccin-macchiato]])
+			vim.cmd([[colorscheme catppuccin-mocha]])
 		end,
 	},
 	{
 		'norcalli/nvim-colorizer.lua',
-		opts = {},
+		config = function()
+			require('colorizer').setup()
+		end,
 	},
 	{
 		'lukas-reineke/indent-blankline.nvim',
@@ -123,7 +125,6 @@ local plugins = {
 			{ 'L3MON4D3/LuaSnip' },
 		},
 	},
-
 	{
 		'folke/trouble.nvim',
 		opts = {},
@@ -135,6 +136,7 @@ local plugins = {
 
 	'github/copilot.vim',
 	'epwalsh/obsidian.nvim',
+	'ThePrimeagen/vim-be-good',
 	{
 		'iamcco/markdown-preview.nvim',
 		cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },

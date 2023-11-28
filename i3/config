@@ -10,7 +10,7 @@ font pango:JetBrains Mono Nerd Fonts, Normal 14
 gaps inner 0px
 
 # title and border
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 2
 smart_borders on
 
 # Use pactl to adjust volume in PulseAudio.
@@ -35,7 +35,7 @@ bindsym $mod+q kill
 
 # rofi
 bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-4/powermenu.sh
 
 # browser
 bindsym $mod+b exec firefox
