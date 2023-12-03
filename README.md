@@ -29,7 +29,7 @@ _Optional_
 
 #### Terminal
 
-    yay -S kitty ranger btop lsd zoxide bat
+    yay -S kitty ranger btop lsd zoxide bat w3m
 
 ### Nvim Dependencies
 

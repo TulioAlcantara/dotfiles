@@ -26,6 +26,7 @@ local mappings = {
 	['t'] = { '<cmd>TroubleToggle<cr>', 'Troubleshoot' },
 	['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
 	['r'] = { '<cmd>Spectre<cr>', 'Replace (Spectre)' },
+	['o'] = { '<cmd>SymbolsOutline<cr>', 'Symbols Outline' },
 
 	h = {
 		name = 'Harpoon',

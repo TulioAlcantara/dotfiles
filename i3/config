@@ -41,7 +41,7 @@ bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-4/powermenu.sh
 bindsym $mod+b exec firefox
 
 # printscreen
-bindsym $mod+p exec maim ~/Pictures/Prints/$(date +%s).png
+bindsym $mod+p exec flameshot gui --path ~/Pictures/Prints
 
 # change focus
 bindsym $mod+h focus left
@@ -202,7 +202,7 @@ bindsym $mod+r mode "resize"
 
 # border color
 # class                 border  backgr. text    indicator child_border
-client.focused          #f5c2e7 #000000 #ffffff #f9e2af   #f5c2e7
+client.focused          #1E1E2E #1E1E2E #ffffff #f9e2af   #f5c2e7
 
 # apps
 exec --no-startup-id dex --autostart --environment i3
