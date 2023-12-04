@@ -35,7 +35,23 @@ for k, v in pairs(options) do
 end
 
 -- set node version to asdf
-local home_dir = '/home/tulio'
-local node_bin = '/.asdf/installs/nodejs/20.7.0/bin'
-vim.g.node_host_prog = home_dir .. node_bin .. '/node'
-vim.cmd("let $PATH = '" .. home_dir .. node_bin .. ":' . $PATH")
+-- local home_dir = '/home/tulio'
+-- local node_bin = '/.asdf/installs/nodejs/20.7.0/bin'
+-- vim.g.node_host_prog = home_dir .. node_bin .. '/node'
+-- vim.cmd("let $PATH = '" .. home_dir .. node_bin .. ":' . $PATH")
+
+-- wsl clipboard
+if vim.fn.has('wsl') == 1 then
+	vim.g.clipboard = {
+		name = 'WslClipboard',
+		copy = {
+			['+'] = 'clip.exe',
+			['*'] = 'clip.exe',
+		},
+		paste = {
+			['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
+end
