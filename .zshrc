@@ -19,10 +19,12 @@ source /usr/share/fzf/completion.zsh
 # Aliases
 alias cat=bat
 alias ls=lsd
+alias df=duf
+
+# Apps
 alias v=nvim
 alias f=fzf
 alias g=lazygit
-alias z=zoxide
 alias r=ranger
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
