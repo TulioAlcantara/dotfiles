@@ -8,7 +8,6 @@ local options = {
 	hlsearch = true, -- highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
 	mouse = 'a', -- allow the mouse to be used in neovim
-	showtabline = 2, -- always show tabs
 	smartcase = true, -- smart case
 	smartindent = true, -- make indenting smarter again
 	splitbelow = true, -- force all horizontal splits to go below current window
@@ -28,6 +27,7 @@ local options = {
 	wrap = true, -- display lines as one long line
 	linebreak = true, -- companion to wrap, don't split words
 	conceallevel = 0, -- so that `` is visible in markdown files
+	showtabline = 0,
 }
 
 for k, v in pairs(options) do

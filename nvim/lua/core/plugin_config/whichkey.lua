@@ -57,9 +57,13 @@ local mappings = {
 	l = {
 		name = 'LSP',
 		a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
-		r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
+		R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
 		f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
 		m = { '<cmd>Mason<cr>', 'Mason' },
+		d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
+		D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Definition' },
+		i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Implementation' },
+		r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
 	},
 
 	b = {
