@@ -1,38 +1,47 @@
 local options = {
-	backup = false, -- creates a backup file
-	clipboard = 'unnamedplus', -- allows neovim to access the system clipboard
-	cmdheight = 1, -- more space in the neovim command line for displaying messages
-	fileencoding = 'utf-8', -- the encoding written to a file
-	number = true, -- set numbered lines
-	relativenumber = true, -- set relative numbered lines
-	hlsearch = true, -- highlight all matches on previous search pattern
-	ignorecase = true, -- ignore case in search patterns
-	mouse = 'a', -- allow the mouse to be used in neovim
-	smartcase = true, -- smart case
-	smartindent = true, -- make indenting smarter again
-	splitbelow = true, -- force all horizontal splits to go below current window
-	splitright = true, -- force all vertical splits to go to the right of current window
-	swapfile = false, -- creates a swapfile
-	termguicolors = true, -- set term gui colors (most terminals support this)
-	undofile = true, -- enable persistent undo
-	timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
-	updatetime = 300, -- faster completion (4000ms default)
-	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-	expandtab = true, -- convert tabs to spaces
-	shiftwidth = 2, -- the number of spaces inserted for each indentation
-	tabstop = 2, -- insert 2 spaces for a tab
-	cursorline = true, -- highlight the current line
-	numberwidth = 2, -- set number column width to 2 {default 4}
-	signcolumn = 'yes', -- always show the sign column, otherwise it would shift the text each time
-	wrap = true, -- display lines as one long line
-	linebreak = true, -- companion to wrap, don't split words
-	conceallevel = 0, -- so that `` is visible in markdown files
-	showtabline = 0,
+	-- backup / swap/ undo
+	backup = false,
+	undofile = true,
+	swapfile = false,
+
+	-- style
+	termguicolors = true,
+	number = true,
+	relativenumber = true,
+	cmdheight = 1,
+	splitbelow = true,
+	splitright = true,
+	signcolumn = 'yes',
+	cursorline = false,
+	wrap = false,
+	scrolloff = 8,
+	conceallevel = 0,
+
+	-- indentation
+	shiftwidth = 2,
+	tabstop = 2,
+	numberwidth = 2,
+	smartindent = true,
+
+	-- search
+	hlsearch = true,
+	incsearch = true,
+	smartcase = true,
+	ignorecase = true,
+
+	-- misc
+	clipboard = 'unnamedplus',
+	fileencoding = 'utf-8',
+	mouse = 'a',
+	updatetime = 50,
 }
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
+-- remove comments on new line
+vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
 
 -- set node version to asdf
 -- local home_dir = '/home/tulio'

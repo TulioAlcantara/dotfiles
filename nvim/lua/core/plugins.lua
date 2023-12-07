@@ -18,12 +18,9 @@ local plugins = {
 
 	'lewis6991/gitsigns.nvim',
 	'nvim-tree/nvim-web-devicons',
-	'SmiteshP/nvim-navic',
 	'MunifTanjim/nui.nvim',
 	'folke/zen-mode.nvim',
-	'folke/twilight.nvim',
 	'nvim-tree/nvim-tree.lua',
-	'Mofiqul/dracula.nvim',
 	'RRethy/vim-illuminate',
 	{
 		'nvim-lualine/lualine.nvim',
@@ -86,6 +83,12 @@ local plugins = {
 	'nvim-pack/nvim-spectre',
 	{ 'numToStr/Comment.nvim', opts = {}, lazy = false },
 	{ 'akinsho/toggleterm.nvim', opts = {} },
+	{
+		'kylechui/nvim-surround',
+		version = '*', -- Use for stability; omit to use `main` branch for the latest features
+		event = 'VeryLazy',
+		opts = {},
+	},
 	{
 		'nvim-telescope/telescope.nvim',
 		tag = '0.1.3',

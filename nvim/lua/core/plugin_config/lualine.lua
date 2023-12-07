@@ -20,8 +20,8 @@ require('lualine').setup({
 		icons_enabled = true,
 		color_icons = true,
 		theme = 'auto',
-		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
+		component_separators = { left = '/', right = '\\' },
+		section_separators = { left = '', right = '' },
 		always_divide_middle = true,
 		globalstatus = true,
 	},
@@ -31,7 +31,7 @@ require('lualine').setup({
 		lualine_c = { '' },
 		lualine_x = { 'selectioncount', 'fancy_searchcount', 'fancy_diagnostics' },
 		lualine_y = { 'filetype', 'fileformat', 'encoding' },
-		lualine_z = { 'progress' },
+		lualine_z = { 'location' },
 	},
 	tabline = {
 		lualine_a = {

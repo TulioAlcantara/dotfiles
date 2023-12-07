@@ -22,11 +22,11 @@ local mappings = {
 	['q'] = { '<cmd>qa!<cr>', 'Quit' },
 	['s'] = { '<cmd>vsplit<CR>', 'Split' },
 	['p'] = { '<cmd>Lazy<cr>', 'Package Manager (Lazy)' },
-	['c'] = { '<cmd>nohl<cr>', 'Clear Search' },
 	['t'] = { '<cmd>TroubleToggle<cr>', 'Troubleshoot' },
 	['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
 	['r'] = { '<cmd>Spectre<cr>', 'Replace (Spectre)' },
 	['o'] = { '<cmd>SymbolsOutline<cr>', 'Symbols Outline' },
+	['c'] = { '<cmd>nohl<cr>', 'Clear Highlight' },
 
 	h = {
 		name = 'Harpoon',
@@ -60,10 +60,10 @@ local mappings = {
 		R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
 		f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
 		m = { '<cmd>Mason<cr>', 'Mason' },
-		d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
-		D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Definition' },
-		i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Implementation' },
-		r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
+		d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go to definition' },
+		D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration' },
+		i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Go to implementation' },
+		r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'Go to references' },
 	},
 
 	b = {

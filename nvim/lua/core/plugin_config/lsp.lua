@@ -3,10 +3,9 @@
 --------------------------------
 
 local lsp_zero = require('lsp-zero')
-local navic = require('nvim-navic')
 
 lsp_zero.on_attach(function(client, bufnr)
-	lsp_zero.default_keymaps({ buffer = bufnr, preserve_mapping = false })
+	lsp_zero.default_keymaps({ buffer = bufnr, preserve_mapping = true })
 	lsp_zero.buffer_autoformat()
 end)
 
@@ -17,13 +16,7 @@ lsp_zero.set_sign_icons({
 	info = '»',
 })
 
-require('lspconfig').clangd.setup({
-	on_attach = function(client, bufnr)
-		navic.attach(client, bufnr)
-	end,
-})
-
--- Disable formatting for some LSPs
+-- Disable formatting for some LSPs, instead use null-ls
 require('lspconfig').tsserver.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
@@ -78,8 +71,6 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<CR>'] = cmp.mapping.confirm({
-			-- documentation says this is important.
-			-- I don't know why.
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
@@ -91,9 +82,9 @@ cmp.setup({
 	},
 	formatting = {
 		format = lspkind.cmp_format({
-			mode = 'symbol_text', -- show only symbol annotations
-			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-			ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+			mode = 'symbol_text',
+			maxwidth = 50,
+			ellipsis_char = '...',
 		}),
 	},
 })
