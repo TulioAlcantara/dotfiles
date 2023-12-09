@@ -22,6 +22,7 @@ alias ls=lsd
 alias df=duf
 
 # Apps
+alias t=tmux
 alias v=nvim
 alias f=fzf
 alias g=lazygit
