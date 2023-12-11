@@ -2,10 +2,21 @@
 --           LSP              --
 --------------------------------
 
+-- Global keybindings
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
-	lsp_zero.default_keymaps({ buffer = bufnr, preserve_mapping = true })
+	local opts = { buffer = bufnr }
+	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+	vim.keymap.set('n', '<F3>', vim.lsp.buf.format, opts)
+
 	lsp_zero.buffer_autoformat()
 end)
 
@@ -51,7 +62,16 @@ lsp_zero.setup()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = {},
+	ensure_installed = {
+		'tsserver',
+		'eslint',
+		'lua_ls',
+		'bashls',
+		'jsonls',
+		'cssls',
+		'html',
+		'volar',
+	},
 	handlers = {
 		lsp_zero.default_setup,
 	},

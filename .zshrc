@@ -6,7 +6,7 @@ fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins
-plugins=(git asdf sudo history)
+plugins=(git asdf sudo history vi-mode)
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"

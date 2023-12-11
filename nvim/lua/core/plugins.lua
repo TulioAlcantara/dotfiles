@@ -145,6 +145,7 @@ local plugins = {
 	'github/copilot.vim',
 	'epwalsh/obsidian.nvim',
 	'ThePrimeagen/vim-be-good',
+	{ 'aserowy/tmux.nvim', opts = {} },
 	{
 		'iamcco/markdown-preview.nvim',
 		cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },

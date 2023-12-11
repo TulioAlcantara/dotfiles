@@ -40,9 +40,6 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- remove comments on new line
-vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
-
 -- set node version to asdf
 -- local home_dir = '/home/tulio'
 -- local node_bin = '/.asdf/installs/nodejs/20.7.0/bin'
