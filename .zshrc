@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# nvm
+source /usr/share/nvm/init-nvm.sh
+
 # Aliases
 alias cat=bat
 alias ls=lsd
