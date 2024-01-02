@@ -28,42 +28,39 @@ require('lualine').setup({
 	sections = {
 		lualine_a = { 'mode' },
 		lualine_b = { 'branch', 'fancy_diff' },
-		lualine_c = { '' },
+		lualine_c = { 'filename' },
 		lualine_x = { 'selectioncount', 'fancy_searchcount', 'fancy_diagnostics' },
 		lualine_y = { 'filetype', 'fileformat', 'encoding' },
 		lualine_z = { 'location' },
 	},
-	tabline = {
-		lualine_a = {
-			{
-				'buffers',
-				use_mode_colors = true,
-				symbols = {
-					modified = ' ●',
-					alternate_file = '',
-					directory = '',
-				},
-				filetype_names = {
-					TelescopePrompt = 'Telescope',
-					dashboard = 'Dashboard',
-					NvimTree = 'File Explorer',
-					lazy = 'Lazy',
-				},
-				max_length = vim.o.columns * 2 / 2,
-			},
-		},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = { 'tabs' },
-	},
-	-- winbar = {
-	-- 	lualine_a = {
-	-- 		'navic',
-	-- 		color_correction = nil,
-	-- 		navic_opts = nil,
+	-- tabline = {
+	-- lualine_a = {
+	-- 	{
+	-- 		'buffers',
+	-- 		use_mode_colors = true,
+	-- 		symbols = {
+	-- 			modified = ' ●',
+	-- 			alternate_file = '',
+	-- 			directory = '',
+	-- 		},
+	-- 		filetype_names = {
+	-- 			TelescopePrompt = 'Telescope',
+	-- 			dashboard = 'Dashboard',
+	-- 			NvimTree = 'File Explorer',
+	-- 			lazy = 'Lazy',
+	-- 		},
+	-- 		max_length = vim.o.columns * 2 / 2,
 	-- 	},
+	-- },
+	-- 	lualine_a = { 'filename' },
+	-- 	lualine_b = { '' },
+	-- 	lualine_c = {},
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = { 'tabs' },
+	-- },
+	-- winbar = {
+	-- 	lualine_a = { 'filename' },
 	-- 	lualine_b = {},
 	-- 	lualine_c = {},
 	-- 	lualine_x = {},

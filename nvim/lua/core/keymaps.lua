@@ -36,9 +36,8 @@ keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', '<C-u>', '<C-u>zz', opts)
 keymap('n', '<C-d>', '<C-d>zz', opts)
 
--- Increment and decrement numbers
-keymap('n', '+', '<C-a>', opts)
-keymap('n', '-', '<C-x>', opts)
+-- Telescope Buffer
+keymap('n', '<C-\\>', '<cmd>Telescope buffers<CR>', opts)
 
 -------------------------------
 --           INSERT           --

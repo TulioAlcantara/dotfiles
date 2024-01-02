@@ -6,7 +6,7 @@
     origin = top-right
     offset = 10x10
     scale = 0
-    notification_limit = 20
+    notification_limit = 10
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -21,8 +21,8 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 2
-    frame_color = "#8CAAEE"
     gap_size = 0
+		frame_color = "#EFF1F5"
     separator_color = frame
     sort = yes
     font = JetBrains Mono Nerd Font 10
@@ -62,20 +62,21 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
+    background = "#EFF1F5" 
+		foreground = "#4C4F69"
     timeout = 5
 
 [urgency_normal]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
+    background = "#EFF1F5"
+		foreground = "#4C4F69"
     timeout = 5
 
 [urgency_critical]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
-    frame_color = "#FAB387"
-    timeout = 0
+		background = "#EFF1F5"
+		foreground = "#4C4F69"
+		frame_color = "#FE640B"
+		timeout = 0
+
 
 
 

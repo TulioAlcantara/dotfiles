@@ -81,11 +81,11 @@ local plugins = {
 	'ThePrimeagen/harpoon',
 	'folke/which-key.nvim',
 	'nvim-pack/nvim-spectre',
+	'mbbill/undotree',
 	{ 'numToStr/Comment.nvim', opts = {}, lazy = false },
-	{ 'akinsho/toggleterm.nvim', opts = {} },
 	{
 		'kylechui/nvim-surround',
-		version = '*', -- Use for stability; omit to use `main` branch for the latest features
+		version = '*',
 		event = 'VeryLazy',
 		opts = {},
 	},
@@ -137,6 +137,10 @@ local plugins = {
 		'folke/trouble.nvim',
 		opts = {},
 	},
+
+	--------------------------------
+	--            DAP            	--
+	--------------------------------
 
 	--------------------------------
 	--            MISC            --

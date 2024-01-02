@@ -27,6 +27,7 @@ local mappings = {
 	['r'] = { '<cmd>Spectre<cr>', 'Replace (Spectre)' },
 	['o'] = { '<cmd>SymbolsOutline<cr>', 'Symbols Outline' },
 	['c'] = { '<cmd>nohl<cr>', 'Clear Highlight' },
+	['u'] = { '<cmd>UndotreeToggle<cr>', 'Undo Tree' },
 
 	h = {
 		name = 'Harpoon',

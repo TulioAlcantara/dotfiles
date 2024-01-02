@@ -23,6 +23,7 @@ source /usr/share/nvm/init-nvm.sh
 alias cat=bat
 alias ls=lsd
 alias df=duf
+alias bye=shutdown -h now
 
 # Apps
 alias t=tmux
