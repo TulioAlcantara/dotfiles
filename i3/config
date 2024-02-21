@@ -88,6 +88,9 @@ bindsym $mod+ctrl+h workspace prev
 # betterlockscreen
 bindsym $mod+x exec --no-startup-id betterlockscreen -l
 
+# focus urgent windows
+focus_on_window_activation focus
+
 # workspaces
 set $ws1 "1" 
 set $ws2 "2"
@@ -209,7 +212,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id setxkbmap -layout "us,br"  -option grp:shifts_toggle
 exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/girl.png
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Wallpapers/*
 exec --no-startup-id playerctld daemon
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

@@ -109,6 +109,7 @@ local plugins = {
 	'nvim-treesitter/nvim-treesitter-context',
 	'onsails/lspkind.nvim',
 	'simrat39/symbols-outline.nvim',
+	'simrat39/rust-tools.nvim',
 	{ 'windwp/nvim-autopairs', event = 'InsertEnter', opts = {} },
 	{
 		'jay-babu/mason-null-ls.nvim',

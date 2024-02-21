@@ -19,6 +19,9 @@ source /usr/share/fzf/completion.zsh
 # nvm
 source /usr/share/nvm/init-nvm.sh
 
+# rust
+source $HOME/.cargo/env
+
 # Aliases
 alias cat=bat
 alias ls=lsd
