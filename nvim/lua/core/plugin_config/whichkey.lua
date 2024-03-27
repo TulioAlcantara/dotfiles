@@ -46,6 +46,7 @@ local mappings = {
 		f = { '<cmd>Telescope find_files<cr>', 'File' },
 		o = { '<cmd>Telescope oldfiles<cr>', 'Old Files' },
 		r = { '<cmd>Telescope resume<cr>', 'Resume' },
+		c = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Current Buffer' },
 	},
 
 	g = {
@@ -53,6 +54,7 @@ local mappings = {
 		g = { '<cmd>LazyGit<cr>', 'LazyGit' },
 		s = { '<cmd>Telescope git_status<cr>', 'Status' },
 		f = { '<cmd>DiffviewFileHistory %<cr>', 'File History' },
+		d = { '<cmd>DiffviewOpen<cr>', 'Diff' },
 	},
 
 	l = {
@@ -65,15 +67,6 @@ local mappings = {
 		D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration' },
 		i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Go to implementation' },
 		r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'Go to references' },
-	},
-
-	b = {
-		name = 'Buffer',
-		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
-		d = { '<cmd>bd<cr>', 'Delete' },
-		n = { '<cmd>bn<cr>', 'Next' },
-		p = { '<cmd>bp<cr>', 'Previous' },
-		s = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Search' },
 	},
 }
 

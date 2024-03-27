@@ -20,7 +20,10 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/nvm/init-nvm.sh
 
 # rust
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
+
+# zoxide setup
+eval "$(zoxide init zsh)"
 
 # Aliases
 alias cat=bat
@@ -38,5 +41,10 @@ alias r=ranger
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# zoxide setup
-eval "$(zoxide init zsh)"
+# pnpm
+export PNPM_HOME="/home/tulio/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

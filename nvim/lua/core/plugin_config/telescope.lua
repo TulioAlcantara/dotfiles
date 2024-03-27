@@ -4,7 +4,7 @@ local lga_actions = require('telescope-live-grep-args.actions')
 telescope.setup({
 	defaults = {
 		path_display = { truncate = 3 },
-		file_ignore_patterns = { 'node_modules' },
+		file_ignore_patterns = { 'node_modules', '.git' },
 		layout_strategy = 'horizontal',
 		layout_config = {
 			horizontal = {
@@ -19,6 +19,9 @@ telescope.setup({
 				['<C-d>'] = require('telescope.actions').delete_buffer,
 			},
 		},
+		preview = {
+			hide_on_startup = false,
+		},
 	},
 	extensions = {
 		live_grep_args = {
@@ -32,6 +35,9 @@ telescope.setup({
 		},
 	},
 	pickers = {
+		find_files = {
+			hidden = true,
+		},
 		colorscheme = {
 			enable_preview = true,
 		},
