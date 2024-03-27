@@ -29,25 +29,31 @@ _Optional_
 
 #### Terminal
 
-    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m
+    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh 
 
 ### Nvim Dependencies
 
-    yay -S neovim xclip fd fzf unzip ripgrep
-
+    yay -S neovim xclip fd fzf unzip ripgrep lazygit
+    npm i -g neovim @fsouza/prettierd node-check-updates
+ 
 ## Shell
 
-Currently using zsh, with [Oh-my-Zsh](https://ohmyz.sh) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme
+[Oh-my-Zsh](https://ohmyz.sh) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme
 
     yay -S zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-    echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 ## Runtime Version Manager
 
-Currently using [asdf](https://asdf-vm.com/)
+[asdf](https://asdf-vm.com/)
 
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+
+
+[nvm](https://github.com/nvm-sh/nvm)
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
 
 Just need to clone the repo, since we've already added the asdf plugin to our .zshrc file
