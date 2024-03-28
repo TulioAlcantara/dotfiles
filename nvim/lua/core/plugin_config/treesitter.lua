@@ -7,6 +7,7 @@ require('nvim-treesitter.configs').setup({
 		'query',
 		'javascript',
 		'css',
+		'scss',
 		'html',
 		'typescript',
 		'vue',
@@ -14,6 +15,7 @@ require('nvim-treesitter.configs').setup({
 		'go',
 		'rust',
 		'python',
+		'astro',
 	},
 
 	sync_install = false,

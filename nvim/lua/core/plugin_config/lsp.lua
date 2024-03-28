@@ -71,6 +71,8 @@ require('mason-lspconfig').setup({
 		'cssls',
 		'html',
 		'volar',
+		'glint',
+		'astro',
 	},
 	handlers = {
 		lsp_zero.default_setup,

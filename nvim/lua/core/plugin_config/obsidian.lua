@@ -1,5 +1,5 @@
-require('obsidian').setup({
-	workspaces = {
-		{ name = 'tulio', path = '~/Documents/tulio-obsidian' },
-	},
-})
+-- require('obsidian').setup({
+-- 	workspaces = {
+-- 		{ name = 'tulio', path = '~/Documents/tulio-obsidian' },
+-- 	},
+-- })

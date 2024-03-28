@@ -134,6 +134,13 @@ local plugins = {
 		'folke/trouble.nvim',
 		opts = {},
 	},
+	{
+		'L3MON4D3/LuaSnip',
+		-- follow latest release.
+		version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = 'make install_jsregexp',
+	},
 
 	--------------------------------
 	--            DAP            	--
@@ -144,7 +151,6 @@ local plugins = {
 	--------------------------------
 
 	'github/copilot.vim',
-	'epwalsh/obsidian.nvim',
 	'ThePrimeagen/vim-be-good',
 	{ 'aserowy/tmux.nvim', opts = {} },
 	{
