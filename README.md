@@ -29,13 +29,13 @@ _Optional_
 
 #### Terminal
 
-    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh 
+    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh
 
 ### Nvim Dependencies
 
     yay -S neovim xclip fd fzf unzip ripgrep lazygit
     npm i -g neovim @fsouza/prettierd node-check-updates
- 
+
 ## Shell
 
 [Oh-my-Zsh](https://ohmyz.sh) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme
@@ -50,10 +50,21 @@ _Optional_
 
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 
-
 [nvm](https://github.com/nvm-sh/nvm)
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-
 Just need to clone the repo, since we've already added the asdf plugin to our .zshrc file
+
+## WSL
+
+    pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh neovim xclip fd fzf unzip ripgrep lazygit
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    yay -S zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
