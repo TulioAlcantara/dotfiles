@@ -62,6 +62,8 @@ Just need to clone the repo, since we've already added the asdf plugin to our .z
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
+    cd
+    yay
     yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh neovim xclip fd fzf unzip ripgrep lazygit
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
