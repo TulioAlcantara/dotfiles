@@ -58,15 +58,13 @@ Just need to clone the repo, since we've already added the asdf plugin to our .z
 
 ## WSL
 
+    pacman -Syu
     pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
-    cd
-    yay
-    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh neovim xclip fd fzf unzip ripgrep lazygit
+    yay -S ranger btop lsd zoxide duf tldr bat w3m openssh neovim xclip fd fzf unzip ripgrep lazygit zsh tmux
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-    yay -S zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k

@@ -40,7 +40,7 @@ local mappings = {
 
 	f = {
 		name = 'Find',
-		g = { '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', 'Live Grep' },
+		s = { '<cmd>Telescope grep_string<cr>', 'String' },
 		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
 		h = { '<cmd>Telescope help_tags<cr>', 'Help' },
 		f = { '<cmd>Telescope find_files<cr>', 'File' },

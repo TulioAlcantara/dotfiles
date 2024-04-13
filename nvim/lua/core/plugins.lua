@@ -58,6 +58,10 @@ local plugins = {
 			require('alpha').setup(require('alpha.themes.startify').config)
 		end,
 	},
+	{
+		'stevearc/dressing.nvim',
+		opts = {},
+	},
 
 	--------------------------------
 	--          GIT               --
@@ -83,12 +87,6 @@ local plugins = {
 	'nvim-pack/nvim-spectre',
 	'mbbill/undotree',
 	{ 'numToStr/Comment.nvim', opts = {}, lazy = false },
-	{
-		'kylechui/nvim-surround',
-		version = '*',
-		event = 'VeryLazy',
-		opts = {},
-	},
 	{
 		'nvim-telescope/telescope.nvim',
 		tag = '0.1.3',
@@ -136,9 +134,7 @@ local plugins = {
 	},
 	{
 		'L3MON4D3/LuaSnip',
-		-- follow latest release.
-		version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-		-- install jsregexp (optional!).
+		version = 'v2.*',
 		build = 'make install_jsregexp',
 	},
 
@@ -151,7 +147,6 @@ local plugins = {
 	--------------------------------
 
 	'github/copilot.vim',
-	'ThePrimeagen/vim-be-good',
 	{ 'aserowy/tmux.nvim', opts = {} },
 	{
 		'iamcco/markdown-preview.nvim',

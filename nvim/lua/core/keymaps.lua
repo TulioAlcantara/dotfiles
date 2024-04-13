@@ -31,6 +31,7 @@ keymap('n', '<c-s>', ':silent w!<CR>', opts)
 
 -- Find Files
 keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
+keymap('n', '<C-f>', '<cmd>Telescope grep_string<CR>', opts)
 
 -- Center screen after moving up and down
 keymap('n', '<C-u>', '<C-u>zz', opts)
