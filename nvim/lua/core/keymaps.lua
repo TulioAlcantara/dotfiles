@@ -30,15 +30,15 @@ keymap('n', '<S-l>', ':bnext<CR>', opts)
 keymap('n', '<c-s>', ':silent w!<CR>', opts)
 
 -- Find Files
-keymap('n', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
-keymap('n', '<C-f>', '<cmd>Telescope grep_string<CR>', opts)
+keymap('n', '<C-p>', '<cmd>FzfLua files<CR>', opts)
+keymap('n', '<C-f>', '<cmd>FzfLua live_grep<CR>', opts)
 
 -- Center screen after moving up and down
 keymap('n', '<C-u>', '<C-u>zz', opts)
 keymap('n', '<C-d>', '<C-d>zz', opts)
 
--- Telescope Buffer
-keymap('n', '<C-\\>', '<cmd>Telescope buffers<CR>', opts)
+-- FzfLua Buffer
+keymap('n', '<C-\\>', '<cmd>FzfLua buffers<CR>', opts)
 
 -------------------------------
 --           INSERT           --

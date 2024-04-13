@@ -40,13 +40,12 @@ local mappings = {
 
 	f = {
 		name = 'Find',
-		s = { '<cmd>Telescope grep_string<cr>', 'String' },
-		b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
-		h = { '<cmd>Telescope help_tags<cr>', 'Help' },
-		f = { '<cmd>Telescope find_files<cr>', 'File' },
-		o = { '<cmd>Telescope oldfiles<cr>', 'Old Files' },
-		r = { '<cmd>Telescope resume<cr>', 'Resume' },
-		c = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Current Buffer' },
+		g = { '<cmd>FzfLua live_grep<cr>', 'Live Grep' },
+		b = { '<cmd>FzfLua buffers<cr>', 'Buffers' },
+		h = { '<cmd>FzfLua helptags<cr>', 'Help' },
+		f = { '<cmd>FzfLua files<cr>', 'File' },
+		o = { '<cmd>FzfLua oldfiles<cr>', 'Old Files' },
+		r = { '<cmd>FzfLua resume<cr>', 'Resume' },
 	},
 
 	g = {

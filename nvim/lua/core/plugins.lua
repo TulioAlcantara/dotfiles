@@ -98,6 +98,12 @@ local plugins = {
 			},
 		},
 	},
+	{
+		'ibhagwan/fzf-lua',
+		config = function()
+			require('fzf-lua').setup({})
+		end,
+	},
 
 	--------------------------------
 	--            LSP             --
