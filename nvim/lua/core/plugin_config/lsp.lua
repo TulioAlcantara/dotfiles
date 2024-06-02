@@ -45,6 +45,12 @@ require('lspconfig').volar.setup({
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
+	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+	init_options = {
+		vue = {
+			hybridMode = false,
+		},
+	},
 })
 require('lspconfig').jsonls.setup({
 	on_init = function(client)
