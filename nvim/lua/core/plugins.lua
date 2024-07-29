@@ -101,10 +101,19 @@ local plugins = {
 	{
 		'ibhagwan/fzf-lua',
 		config = function()
-			require('fzf-lua').setup({})
+			require('fzf-lua').setup({
+				winopts = {
+					fullscreen = true,
+					preview = {
+						layout = 'vertical',
+					},
+				},
+				files = {
+					formatter = 'path.filename_first',
+				},
+			})
 		end,
 	},
-
 	--------------------------------
 	--            LSP             --
 	--------------------------------
