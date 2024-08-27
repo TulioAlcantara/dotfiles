@@ -18,6 +18,7 @@ local plugins = {
 
 	'lewis6991/gitsigns.nvim',
 	'nvim-tree/nvim-web-devicons',
+	{ 'echasnovski/mini.icons', version = false },
 	'MunifTanjim/nui.nvim',
 	'folke/zen-mode.nvim',
 	'nvim-tree/nvim-tree.lua',
