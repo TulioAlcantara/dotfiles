@@ -8,6 +8,10 @@ _Optional_
 - To check the current installed headers use `ls /lib/modules`
 - Nvidia Drivers using [Frogging](https://github.com/Frogging-Family/nvidia-all)
 
+## Scripts
+
+### move_here.sh to update the repo and setup.sh to update your env
+
 ## Packages
 
 ### Install [Yay](https://github.com/Jguer/yay) (Package Manager)
