@@ -10,8 +10,8 @@ _Optional_
 
 ## Scripts
 
-- move_here.sh to update the repo
-- setup.sh to update your env
+- `move_here.sh` to update the repo
+- `setup.sh` to update your env
 
 ## Packages
 
