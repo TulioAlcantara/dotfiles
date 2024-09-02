@@ -25,11 +25,11 @@ _Optional_
 
 #### GUI
 
-    yay -S firefox thunderbird cider steam discord obsidian
+    yay -S firefox thunderbird cider discord
 
 #### Terminal
 
-    yay -S kitty ranger btop lsd zoxide duf tldr bat w3m open-ssh
+    yay -S ttf-comic-mono-git kitty yazi btop lsd zoxide duf tldr bat w3m open-ssh
 
 ### Nvim Dependencies
 
