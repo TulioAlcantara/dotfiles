@@ -6,11 +6,12 @@ _Optional_
 
 - Look up your Kernel version using `uname -r` and then install the equivalent [Linux Headers](https://archlinux.org/packages/core/x86_64/linux-headers/)
 - To check the current installed headers use `ls /lib/modules`
-- Nvidia Drivers using [Frogging](https://github.com/Frogging-Family/nvidia-all)
+- Nvidia Drivers using [Frogging](https://github.com/Frogging-Family/nvidia-all) or using installing the `nvidia` package
 
 ## Scripts
 
-### move_here.sh to update the repo and setup.sh to update your env
+- move_here.sh to update the repo
+- setup.sh to update your env
 
 ## Packages
 
