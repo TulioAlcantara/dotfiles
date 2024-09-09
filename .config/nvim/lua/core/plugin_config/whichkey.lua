@@ -2,6 +2,7 @@ local wk = require('which-key')
 wk.add({
 	{
 		mode = { 'n' },
+		{ '<leader>d', '<cmd>bd<cr>', desc = 'Close Buffer' },
 		{ '<leader>q', '<cmd>qa!<cr>', desc = 'Quit' },
 		{ '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Explorer' },
 		{ '<leader>s', '<cmd>vsplit<cr>', desc = 'Split' },

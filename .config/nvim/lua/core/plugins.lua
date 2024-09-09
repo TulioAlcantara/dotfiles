@@ -82,12 +82,10 @@ local plugins = {
 	--          ACTIONS           --
 	--------------------------------
 
-	{ 'max397574/better-escape.nvim', opts = {} },
 	'ThePrimeagen/harpoon',
 	'folke/which-key.nvim',
 	'nvim-pack/nvim-spectre',
 	'mbbill/undotree',
-	{ 'numToStr/Comment.nvim', opts = {}, lazy = false },
 	{
 		'nvim-telescope/telescope.nvim',
 		tag = '0.1.3',
