@@ -28,7 +28,7 @@ lsp_zero.set_sign_icons({
 })
 
 -- Disable formatting for some LSPs, instead use null-ls
-require('lspconfig').tsserver.setup({
+require('lspconfig').ts_ls.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
@@ -45,7 +45,7 @@ require('lspconfig').volar.setup({
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
-	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+	filetypes = { 'vue' },
 	init_options = {
 		vue = {
 			hybridMode = false,
@@ -69,7 +69,7 @@ lsp_zero.setup()
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'tsserver',
+		'ts_ls',
 		'eslint',
 		'lua_ls',
 		'bashls',
@@ -130,12 +130,13 @@ null_ls.setup({
 		null_opts.on_attach(client, bufnr)
 	end,
 	sources = {
-		null_ls.builtins.formatting.prettierd.with({
-			env = {
-				PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.config/nvim/.prettierrc.json'),
-			},
-		}),
+		-- null_ls.builtins.formatting.prettierd.with({
+		-- 	env = {
+		-- 		PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.config/nvim/.prettierrc.json'),
+		-- 	},
+		-- }),
 		null_ls.builtins.formatting.stylua,
+		-- null_ls.builtins.formatting.biome,
 	},
 })
 

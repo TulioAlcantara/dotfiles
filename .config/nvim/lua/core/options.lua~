@@ -1,8 +1,7 @@
 local options = {
 	-- backup / swap/ undo
-	writebackup = false,
 	backup = false,
-	undofile = false,
+	undofile = true,
 	swapfile = false,
 
 	-- style
