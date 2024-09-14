@@ -20,7 +20,7 @@ local plugins = {
 	'nvim-tree/nvim-web-devicons',
 	{ 'echasnovski/mini.icons', version = false },
 	'MunifTanjim/nui.nvim',
-	'nvim-tree/nvim-tree.lua',
+	-- 'nvim-tree/nvim-tree.lua',
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
@@ -66,7 +66,12 @@ local plugins = {
 	--          GIT               --
 	--------------------------------
 
-	'kdheepak/lazygit.nvim',
+	{
+		'kdheepak/lazygit.nvim',
+		init = function()
+			vim.g.lazygit_floating_window_scaling_factor = 1
+		end,
+	},
 	'tpope/vim-fugitive',
 	'sindrets/diffview.nvim',
 	{
@@ -110,6 +115,12 @@ local plugins = {
 				},
 			})
 		end,
+	},
+	{
+		'stevearc/oil.nvim',
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
 	},
 	--------------------------------
 	--            LSP             --

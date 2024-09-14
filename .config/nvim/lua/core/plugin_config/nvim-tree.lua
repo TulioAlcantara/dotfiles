@@ -1,8 +1,8 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local HEIGHT_RATIO = 0.8
-local WIDTH_RATIO = 0.3
+local HEIGHT_RATIO = 1.0
+local WIDTH_RATIO = 1.0
 
 require('nvim-tree').setup({
 	update_focused_file = {
@@ -49,11 +49,13 @@ require('nvim-tree').setup({
 		},
 	},
 	view = {
-		relativenumber = true,
-		side = 'right',
-		width = function()
-			return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-		end,
+		width = '100%',
+		-- adaptive_size = true,
+		-- relativenumber = true,
+		-- side = 'right',
+		-- width = function()
+		-- 	return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+		-- end,
 		-- float = {
 		-- 	enable = true,
 		-- 	open_win_config = function()

@@ -4,7 +4,7 @@ wk.add({
 		mode = { 'n' },
 		{ '<leader>d', '<cmd>bd<cr>', desc = 'Close Buffer' },
 		{ '<leader>q', '<cmd>qa!<cr>', desc = 'Quit' },
-		{ '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Explorer' },
+		{ '<leader>e', '<cmd>Oil<cr>', desc = 'Explorer' },
 		{ '<leader>s', '<cmd>vsplit<cr>', desc = 'Split' },
 		{
 			'<leader>p',
@@ -16,7 +16,7 @@ wk.add({
 		{ '<leader>c', '<cmd>nohl<cr>', desc = 'Clear Highlight' },
 		{ '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Undo Tree' },
 		{ '<leader>r', '<cmd>Spectre<cr>', desc = 'Replace (Spectre)' },
-		{ '<leader>z', '<cmd>ZenMode<cr>', desc = 'Zen Mode' },
+		{ '<leader>b', '<cmd>FzfLua buffers<cr>', desc = 'Buffers' },
 	},
 	{
 		mode = { 'n' },

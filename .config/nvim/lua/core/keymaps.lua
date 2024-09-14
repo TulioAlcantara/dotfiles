@@ -27,7 +27,7 @@ keymap('n', '<S-h>', ':bprevious<CR>', opts)
 keymap('n', '<S-l>', ':bnext<CR>', opts)
 
 -- Save Buffer
-keymap('n', '<c-s>', ':silent w!<CR>', opts)
+keymap('n', '<c-s>', ':w<CR>', opts)
 
 -- Find Files
 keymap('n', '<C-p>', '<cmd>FzfLua files<CR>', opts)
