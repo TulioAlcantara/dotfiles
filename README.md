@@ -28,13 +28,7 @@ _Optional_
 
 ### Install Apps
 
-#### GUI
-
-    yay -S firefox thunderbird cider discord
-
-#### Terminal
-
-    yay -S ttf-comic-mono-git kitty yazi btop lsd zoxide duf tldr bat w3m open-ssh
+    yay -S kitty yazi btop lsd zoxide duf tldr bat w3m open-ssh
 
 ### Nvim Dependencies
 

@@ -22,9 +22,9 @@ keymap('n', '<C-Down>', ':resize +2<CR>', opts)
 keymap('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
--- Switch Buffer
-keymap('n', '<S-h>', ':bprevious<CR>', opts)
-keymap('n', '<S-l>', ':bnext<CR>', opts)
+-- Switch Harpoon Buffer
+keymap('n', '<S-h>', '<cmd>:lua require("harpoon.ui").nav_next()<CR>', opts)
+keymap('n', '<S-l>', '<cmd>:lua require("harpoon.ui").nav_prev()<CR>', opts)
 
 -- Save Buffer
 keymap('n', '<c-s>', ':w<CR>', opts)

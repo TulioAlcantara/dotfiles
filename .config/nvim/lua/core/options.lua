@@ -14,7 +14,7 @@ local options = {
 	splitright = true,
 	signcolumn = 'yes',
 	cursorline = false,
-	wrap = false,
+	wrap = true,
 	scrolloff = 8,
 	conceallevel = 0,
 

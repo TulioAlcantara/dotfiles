@@ -35,4 +35,10 @@ wk.add({
 		{ '<leader>gf', '<cmd>DiffviewFileHistory %<<cr>', desc = 'File History' },
 		{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diff' },
 	},
+	{
+		mode = { 'n' },
+		{ '<leader>h', group = 'Harpoon' },
+		{ '<leader>ha', '<cmd>lua require("harpoon.mark").add_file()<cr>', desc = 'Add' },
+		{ '<leader>hh', '<cmd>:lua require("harpoon.ui").toggle_quick_menu()<cr>', desc = 'Toggle Menu' },
+	},
 })
