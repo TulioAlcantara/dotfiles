@@ -17,6 +17,7 @@ _Optional_
 
 ### [Yay](https://github.com/Jguer/yay) (Package Manager)
 
+    pacman -Syu
     pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
@@ -24,7 +25,7 @@ _Optional_
 
 ### i3 Dependencies
 
-    yay -S ttf-cascadia-code-nerd noto-fonts-jp-vf rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot
+    yay -S ttf-cascadia-code-nerd  rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot
 
 ### Terminal Apps
 
@@ -54,16 +55,3 @@ _Optional_
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 Just need to clone the repo, since we've already added the asdf plugin to our .zshrc file
-
-## WSL
-
-    pacman -Syu
-    pacman -S --needed git base-devel
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    yay -S ranger btop lsd zoxide duf tldr bat w3m openssh neovim xclip fd fzf unzip ripgrep lazygit zsh tmux
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
