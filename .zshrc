@@ -32,7 +32,7 @@ eval "$(zoxide init zsh)"
 alias cat=bat
 alias ls=lsd
 alias df=duf
-alias bye=shutdown -h now
+alias c=clear
 
 # Apps
 alias t=tmux
