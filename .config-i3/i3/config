@@ -4,7 +4,7 @@ set $fm DP-0
 set $sm HDMI-0
 
 # font
-font pango:JetBrains Mono Nerd Fonts, Normal 14
+font pango:CaskaydiaCove Nerd Font Propo, Normal 8
 
 # gaps
 gaps inner 0px
@@ -37,7 +37,7 @@ bindsym $mod+q kill
 bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # browser
-bindsym $mod+b exec firefox-developer-edition
+bindsym $mod+b exec firefox
 
 # printscreen
 bindsym $mod+p exec flameshot gui --path ~/Pictures/Prints
@@ -170,10 +170,10 @@ workspace 19 output $sm
 workspace 20 output $sm
 
 # workspace related apps
-for_window [class="Cider"] move to workspace 4
-assign [class="obsidian"] 9
-assign [class="thunderbird"] 10
-for_window [class="discord"] move to workspace 3
+# for_window [class="Cider"] move to workspace 4
+# assign [class="obsidian"] 9
+# assign [class="thunderbird"] 10
+# for_window [class="discord"] move to workspace 3
 # for_window [class="firefox"] move to workspace 2
 # for_window [class="Lutris"] floating enable
 
@@ -220,9 +220,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 
 # worskspace related apps
-exec --no-startup-id thunderbird
-exec --no-startup-id steam
-exec --no-startup-id discord --enable-gpu-rasterization
-exec --no-startup-id cider
-exec --no-startup-id obsidian
-exec --no-startup-id firefox
+# exec --no-startup-id thunderbird
+# exec --no-startup-id steam
+# exec --no-startup-id discord --enable-gpu-rasterization
+# exec --no-startup-id cider
+# exec --no-startup-id obsidian
+# exec --no-startup-id firefox

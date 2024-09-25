@@ -15,18 +15,18 @@ _Optional_
 
 ## Packages
 
-### Install [Yay](https://github.com/Jguer/yay) (Package Manager)
+### [Yay](https://github.com/Jguer/yay) (Package Manager)
 
     pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
 
-### Install i3 Dependencies
+### i3 Dependencies
 
-    yay -S  ttf-jetbrains-mono-nerd.3.0.2-1 rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen
+    yay -S ttf-cascadia-code-nerd noto-fonts-jp-vf rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot
 
-### Install Apps
+### Terminal Apps
 
     yay -S kitty yazi btop lsd zoxide duf tldr bat w3m open-ssh
 
