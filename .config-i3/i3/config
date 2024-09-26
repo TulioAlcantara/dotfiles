@@ -4,7 +4,7 @@ set $fm DP-0
 set $sm HDMI-0
 
 # font
-font pango:CaskaydiaCove Nerd Font Propo, Normal 8
+font pango:CaskaydiaCove Nerd Font Propo, Normal 6
 
 # gaps
 gaps inner 0px
@@ -87,6 +87,9 @@ bindsym $mod+ctrl+h workspace prev
 
 # betterlockscreen
 bindsym $mod+x exec --no-startup-id betterlockscreen -l
+
+# sleep
+bindsym $mod+Shift+x exec --no-startup-id systemctl suspend
 
 # focus urgent windows
 focus_on_window_activation focus
@@ -218,11 +221,3 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # picom
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
-
-# worskspace related apps
-# exec --no-startup-id thunderbird
-# exec --no-startup-id steam
-# exec --no-startup-id discord --enable-gpu-rasterization
-# exec --no-startup-id cider
-# exec --no-startup-id obsidian
-# exec --no-startup-id firefox

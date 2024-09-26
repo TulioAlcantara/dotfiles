@@ -25,7 +25,7 @@ _Optional_
 
 ### i3 Dependencies
 
-    yay -S ttf-cascadia-code-nerd  rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot
+    yay -S ttf-cascadia-code-nerd  rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot dolphin
 
 ### Terminal Apps
 
