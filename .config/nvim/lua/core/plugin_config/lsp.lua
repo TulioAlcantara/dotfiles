@@ -10,12 +10,13 @@ local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr }
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
 	vim.keymap.set('n', '<F3>', vim.lsp.buf.format, opts)
+	vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
 
 	lsp_zero.buffer_autoformat()
 end)

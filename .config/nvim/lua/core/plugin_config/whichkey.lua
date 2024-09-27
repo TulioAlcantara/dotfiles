@@ -6,6 +6,7 @@ wk.add({
 		{ '<leader>q', '<cmd>qa!<cr>', desc = 'Quit' },
 		{ '<leader>e', '<cmd>Oil<cr>', desc = 'Explorer' },
 		{ '<leader>s', '<cmd>vsplit<cr>', desc = 'Split' },
+		{ '<leader>S', '<cmd>noa w<cr>', desc = 'Save without formatting' },
 		{
 			'<leader>p',
 			'<cmd>Lazy<cr>',
@@ -17,6 +18,7 @@ wk.add({
 		{ '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Undo Tree' },
 		{ '<leader>r', '<cmd>Spectre<cr>', desc = 'Replace (Spectre)' },
 		{ '<leader>b', '<cmd>FzfLua buffers<cr>', desc = 'Buffers' },
+		{ '<leader>a', vim.lsp.buf.code_action, desc = 'Code Actions' },
 	},
 	{
 		mode = { 'n' },
