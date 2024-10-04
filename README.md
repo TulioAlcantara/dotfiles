@@ -25,11 +25,11 @@ _Optional_
 
 ### i3 Dependencies
 
-    yay -S ttf-cascadia-code-nerd  rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot dolphin
+    yay -S ttf-cascadia-code-nerd  rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot dolphin kitty
 
 ### Terminal Apps
 
-    yay -S kitty yazi btop lsd zoxide duf tldr bat w3m open-ssh
+    yay -S yazi btop lsd zoxide duf tldr bat w3m open-ssh
 
 ### Nvim Dependencies
 
