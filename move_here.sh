@@ -1,5 +1,5 @@
 $(cp -r ~/.config/kitty ~/.config/nvim .config/)
-$(cp ~/.config/tmux/tmux.conf .config/tmux/)
+$(cp ~/.tmux.conf .tmux.conf)
 echo "Copied files from .config/"
 $(cp -r ~/.config/i3 ~/.config/polybar ~/.config/picom ~/.config/dunst ~/.config/rofi .config-i3/)
 echo "Copied files from .config/ (i3)"
