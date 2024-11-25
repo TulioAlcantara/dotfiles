@@ -37,6 +37,7 @@ local options = {
 	updatetime = 50,
 }
 
+
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end

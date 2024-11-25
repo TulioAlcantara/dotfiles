@@ -28,6 +28,11 @@ lsp_zero.set_sign_icons({
 	info = '»',
 })
 
+-- Disable inline diagnostics
+-- vim.diagnostic.config({
+-- 	virtual_text = false,
+-- })
+
 -- Disable formatting for some LSPs, instead use null-ls
 require('lspconfig').ts_ls.setup({
 	on_init = function(client)

@@ -4,7 +4,8 @@ wk.add({
 		mode = { 'n' },
 		{ '<leader>d', '<cmd>bd<cr>', desc = 'Close Buffer' },
 		{ '<leader>q', '<cmd>qa!<cr>', desc = 'Quit' },
-		{ '<leader>e', '<cmd>Oil<cr>', desc = 'Explorer' },
+		{ '<leader>e', '<cmd>Yazi<cr>', desc = 'Explorer (Yazi)' },
+		{ '<leader>E', '<cmd>Yazi cwd<cr>', desc = 'Explorer (Yazi) CWD' },
 		{ '<leader>s', '<cmd>vsplit<cr>', desc = 'Split' },
 		{ '<leader>S', '<cmd>noa w<cr>', desc = 'Save without formatting' },
 		{
@@ -13,7 +14,8 @@ wk.add({
 			desc = 'Package Manager (Lazy)',
 		},
 		{ '<leader>t', '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>', desc = 'Troubleshoot' },
-		{ '<leader>o', '<cmd>SymbolsOutline<cr>', desc = 'Symbols Outline' },
+		{ '<leader>o', '<cmd>Oil<cr>', desc = 'Oil' },
+		{ '<leader>O', '<cmd>SymbolsOutline<cr>', desc = 'Symbols Outline' },
 		{ '<leader>c', '<cmd>nohl<cr>', desc = 'Clear Highlight' },
 		{ '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Undo Tree' },
 		{ '<leader>r', '<cmd>Spectre<cr>', desc = 'Replace (Spectre)' },
@@ -36,6 +38,7 @@ wk.add({
 		{ '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Lazy Git' },
 		{ '<leader>gf', '<cmd>DiffviewFileHistory %<<cr>', desc = 'File History' },
 		{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diff' },
+		{ '<leader>gb', '<cmd>BlamerToggle<cr>', desc = 'Blamer' },
 	},
 	{
 		mode = { 'n' },

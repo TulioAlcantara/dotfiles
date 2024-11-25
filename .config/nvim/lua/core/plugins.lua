@@ -30,10 +30,6 @@ local plugins = {
 	{
 		'catppuccin/nvim',
 		name = 'catppuccin',
-		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme catppuccin-mocha]])
-		end,
 	},
 	{
 		'norcalli/nvim-colorizer.lua',
@@ -41,12 +37,12 @@ local plugins = {
 			require('colorizer').setup()
 		end,
 	},
-	{
-		'lukas-reineke/indent-blankline.nvim',
-		config = function()
-			require('ibl').setup()
-		end,
-	},
+	-- {
+	-- 	'lukas-reineke/indent-blankline.nvim',
+	-- 	config = function()
+	-- 		require('ibl').setup()
+	-- 	end,
+	-- },
 	{
 		'windwp/nvim-ts-autotag',
 		opts = {},
@@ -60,6 +56,18 @@ local plugins = {
 	{
 		'stevearc/dressing.nvim',
 		opts = {},
+	},
+	{
+		'rebelot/kanagawa.nvim',
+		priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme kanagawa]])
+		end,
+	},
+	'sainnhe/gruvbox-material',
+	{
+		'rose-pine/neovim',
+		name = 'rose-pine',
 	},
 
 	--------------------------------
@@ -77,7 +85,7 @@ local plugins = {
 	{
 		'APZelos/blamer.nvim',
 		init = function()
-			vim.g.blamer_enabled = true
+			vim.g.blamer_enabled = false
 		end,
 	},
 
@@ -85,7 +93,16 @@ local plugins = {
 	--          ACTIONS           --
 	--------------------------------
 
-	'ThePrimeagen/harpoon',
+	{
+		'ThePrimeagen/harpoon',
+		config = function()
+			require('harpoon').setup({
+				menu = {
+					width = vim.api.nvim_win_get_width(0) - 4,
+				},
+			})
+		end,
+	},
 	'folke/which-key.nvim',
 	'nvim-pack/nvim-spectre',
 	'mbbill/undotree',
@@ -129,6 +146,18 @@ local plugins = {
 		opts = {},
 		event = 'VeryLazy',
 		enabled = vim.fn.has('nvim-0.10.0') == 1,
+	},
+	{
+		'mikavilpas/yazi.nvim',
+		event = 'VeryLazy',
+		opts = {
+			open_for_directories = true,
+			keymaps = {
+				show_help = '<f1>',
+			},
+			floating_window_scaling_factor = 1,
+			yazi_floating_window_border = 'none',
+		},
 	},
 	--------------------------------
 	--            LSP             --
