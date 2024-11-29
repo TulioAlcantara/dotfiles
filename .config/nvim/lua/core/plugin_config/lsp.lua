@@ -28,12 +28,7 @@ lsp_zero.set_sign_icons({
 	info = '»',
 })
 
--- Disable inline diagnostics
--- vim.diagnostic.config({
--- 	virtual_text = false,
--- })
-
--- Disable formatting for some LSPs, instead use null-ls
+-- Disable formatting for some LSPs, instead use null-ls (prettier) or Biome
 require('lspconfig').ts_ls.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
@@ -41,6 +36,18 @@ require('lspconfig').ts_ls.setup({
 	end,
 })
 require('lspconfig').cssls.setup({
+	on_init = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingRangeProvider = false
+	end,
+})
+require('lspconfig').eslint.setup({
+	on_init = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingRangeProvider = false
+	end,
+})
+require('lspconfig').jsonls.setup({
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
@@ -57,12 +64,6 @@ require('lspconfig').volar.setup({
 			hybridMode = false,
 		},
 	},
-})
-require('lspconfig').jsonls.setup({
-	on_init = function(client)
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentFormattingRangeProvider = false
-	end,
 })
 
 require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
@@ -142,7 +143,6 @@ null_ls.setup({
 		-- 	},
 		-- }),
 		null_ls.builtins.formatting.stylua,
-		-- null_ls.builtins.formatting.biome,
 	},
 })
 

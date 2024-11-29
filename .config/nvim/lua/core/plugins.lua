@@ -80,6 +80,13 @@ local plugins = {
 			vim.g.lazygit_floating_window_scaling_factor = 1
 		end,
 	},
+	{
+		'NeogitOrg/neogit',
+		dependencies = {
+			'echasnovski/mini.pick',
+		},
+		config = true,
+	},
 	'tpope/vim-fugitive',
 	'sindrets/diffview.nvim',
 	{

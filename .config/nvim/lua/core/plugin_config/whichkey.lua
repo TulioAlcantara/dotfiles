@@ -35,7 +35,7 @@ wk.add({
 	{
 		mode = { 'n' },
 		{ '<leader>g', group = 'Git' },
-		{ '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Lazy Git' },
+		{ '<leader>gg', '<cmd>Neogit<cr>', desc = 'NeoGit' },
 		{ '<leader>gf', '<cmd>DiffviewFileHistory %<<cr>', desc = 'File History' },
 		{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diff' },
 		{ '<leader>gb', '<cmd>BlamerToggle<cr>', desc = 'Blamer' },
