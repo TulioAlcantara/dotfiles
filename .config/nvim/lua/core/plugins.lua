@@ -28,10 +28,6 @@ local plugins = {
 		},
 	},
 	{
-		'catppuccin/nvim',
-		name = 'catppuccin',
-	},
-	{
 		'norcalli/nvim-colorizer.lua',
 		config = function()
 			require('colorizer').setup()
@@ -59,16 +55,26 @@ local plugins = {
 	},
 	{
 		'rebelot/kanagawa.nvim',
+	},
+	{
+		'folke/tokyonight.nvim',
+		lazy = false,
 		priority = 1000,
+		opts = {},
 		config = function()
-			vim.cmd([[colorscheme kanagawa]])
+			require('tokyonight').setup({
+				style = 'night',
+			})
+			vim.cmd('colorscheme tokyonight')
 		end,
 	},
-	'sainnhe/gruvbox-material',
-	{
-		'rose-pine/neovim',
-		name = 'rose-pine',
-	},
+	-- {
+	-- 	'romgrk/barbar.nvim',
+	-- 	init = function()
+	-- 		vim.g.barbar_auto_setup = false
+	-- 	end,
+	-- 	opts = {},
+	-- },
 
 	--------------------------------
 	--          GIT               --
@@ -79,13 +85,6 @@ local plugins = {
 		init = function()
 			vim.g.lazygit_floating_window_scaling_factor = 1
 		end,
-	},
-	{
-		'NeogitOrg/neogit',
-		dependencies = {
-			'echasnovski/mini.pick',
-		},
-		config = true,
 	},
 	'tpope/vim-fugitive',
 	'sindrets/diffview.nvim',
@@ -100,6 +99,7 @@ local plugins = {
 	--          ACTIONS           --
 	--------------------------------
 
+	'nvim-lua/plenary.nvim',
 	{
 		'ThePrimeagen/harpoon',
 		config = function()
@@ -113,17 +113,6 @@ local plugins = {
 	'folke/which-key.nvim',
 	'nvim-pack/nvim-spectre',
 	'mbbill/undotree',
-	{
-		'nvim-telescope/telescope.nvim',
-		tag = '0.1.3',
-		dependencies = {
-			{ 'nvim-lua/plenary.nvim' },
-			{
-				'nvim-telescope/telescope-live-grep-args.nvim',
-				version = '^1.0.0',
-			},
-		},
-	},
 	{
 		'ibhagwan/fzf-lua',
 		config = function()
@@ -171,7 +160,7 @@ local plugins = {
 	--------------------------------
 
 	'nvim-treesitter/nvim-treesitter',
-	'nvim-treesitter/nvim-treesitter-context',
+	-- 'nvim-treesitter/nvim-treesitter-context',
 	'onsails/lspkind.nvim',
 	'simrat39/symbols-outline.nvim',
 	'simrat39/rust-tools.nvim',
@@ -213,7 +202,22 @@ local plugins = {
 	--            MISC            --
 	--------------------------------
 
-	'github/copilot.vim',
+	{
+		'zbirenbaum/copilot.lua',
+		config = function()
+			require('copilot').setup({
+				panel = {
+					auto_refresh = true,
+				},
+				suggestion = {
+					auto_trigger = true,
+					keymap = {
+						accept = '<Tab>',
+					},
+				},
+			})
+		end,
+	},
 	{ 'aserowy/tmux.nvim', opts = {} },
 	{
 		'iamcco/markdown-preview.nvim',

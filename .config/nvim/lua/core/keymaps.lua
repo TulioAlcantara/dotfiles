@@ -30,6 +30,10 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 keymap('n', '<S-h>', '<cmd>:bp<CR>', opts)
 keymap('n', '<S-l>', '<cmd>:bn<CR>', opts)
 
+-- Reorder Buffers
+keymap('n', '<A-h>', '<cmd>:BufferMovePrevious<CR>', opts)
+keymap('n', '<A-l>', '<cmd>:BufferMoveNext<CR>', opts)
+
 -- Save Buffer
 keymap('n', '<c-s>', ':w<CR>', opts)
 
