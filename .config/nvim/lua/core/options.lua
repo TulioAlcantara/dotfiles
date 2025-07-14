@@ -8,7 +8,7 @@ local options = {
 	-- style
 	termguicolors = true,
 	number = true,
-	relativenumber = false,
+	relativenumber = true,
 	cmdheight = 1,
 	splitbelow = true,
 	splitright = true,
@@ -40,7 +40,6 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
 
 -- set node version to asdf
 -- local home_dir = '/home/tulio'
