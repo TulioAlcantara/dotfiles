@@ -28,7 +28,7 @@ local plugins = {
     },
   },
   {
-    'norcalli/nvim-colorizer.lua',
+    'NvChad/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup()
     end,
@@ -162,15 +162,16 @@ local plugins = {
   'nvim-treesitter/nvim-treesitter',
   -- 'nvim-treesitter/nvim-treesitter-context',
   'onsails/lspkind.nvim',
-  'simrat39/symbols-outline.nvim',
+  {
+    'hedyhli/outline.nvim',
+    opts = {},
+  },
   'simrat39/rust-tools.nvim',
   { 'windwp/nvim-autopairs',  event = 'InsertEnter', opts = {} },
   {
-    'jay-babu/mason-null-ls.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    'nvimtools/none-ls.nvim',
     dependencies = {
       'williamboman/mason.nvim',
-      'nvimtools/none-ls.nvim',
     },
   },
   'williamboman/mason.nvim',
@@ -179,6 +180,7 @@ local plugins = {
   'hrsh7th/cmp-nvim-lsp',
   {
     'zbirenbaum/copilot-cmp',
+    dependencies = { 'zbirenbaum/copilot.lua' },
     config = function()
       require('copilot_cmp').setup()
     end,
@@ -203,17 +205,42 @@ local plugins = {
 
   {
     'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
     config = function()
       require('copilot').setup({
         panel = {
-          auto_refresh = true,
-        },
-        suggestion = {
-          auto_trigger = true,
+          enabled = true,
+          auto_refresh = false,
           keymap = {
-            accept = '<Tab>',
+            jump_prev = "[[",
+            jump_next = "]]",
+            accept = "<CR>",
+            refresh = "gr",
+            open = "<M-CR>"
+          },
+          layout = {
+            position = "bottom",
+            ratio = 0.4
           },
         },
+        suggestion = {
+          enabled = false, -- Disable inline suggestions since we use cmp
+          auto_trigger = false,
+        },
+        filetypes = {
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = 'node',
+        server_opts_overrides = {},
       })
     end,
   },
