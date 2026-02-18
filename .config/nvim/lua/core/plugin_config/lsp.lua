@@ -147,7 +147,7 @@ vim.lsp.config.jsonls = {
   end,
 }
 
-vim.lsp.config.volar = {
+vim.lsp.config.vue_ls = {
   cmd = { 'vue-language-server', '--stdio' },
   filetypes = { 'vue' },
   root_markers = { 'package.json', 'vue.config.js', '.git' },
@@ -239,7 +239,7 @@ require('mason-lspconfig').setup({
     'jsonls',
     'cssls',
     'html',
-    'volar',
+    'vue_ls',
     'glint',
     'astro',
   },
