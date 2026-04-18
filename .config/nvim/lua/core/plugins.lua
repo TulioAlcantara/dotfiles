@@ -19,7 +19,6 @@ local plugins = {
 	'lewis6991/gitsigns.nvim',
 	'nvim-tree/nvim-web-devicons',
 	{ 'echasnovski/mini.icons', version = false },
-	'MunifTanjim/nui.nvim',
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
@@ -45,9 +44,6 @@ local plugins = {
 	{
 		'stevearc/dressing.nvim',
 		opts = {},
-	},
-	{
-		'rebelot/kanagawa.nvim',
 	},
 	{
 		'folke/tokyonight.nvim',
@@ -116,8 +112,8 @@ local plugins = {
 		end,
 	},
 	{
-		'stevearc/oil.nvim',
-		opts = {},
+		'nvim-tree/nvim-tree.lua',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 	},
 	{
 		'jake-stewart/multicursor.nvim',
@@ -128,18 +124,6 @@ local plugins = {
 		opts = {},
 		event = 'VeryLazy',
 		enabled = vim.fn.has('nvim-0.10.0') == 1,
-	},
-	{
-		'mikavilpas/yazi.nvim',
-		event = 'VeryLazy',
-		opts = {
-			open_for_directories = true,
-			keymaps = {
-				show_help = '<f1>',
-			},
-			floating_window_scaling_factor = 1,
-			yazi_floating_window_border = 'none',
-		},
 	},
 	--------------------------------
 	--            LSP             --
@@ -152,8 +136,6 @@ local plugins = {
 		'hedyhli/outline.nvim',
 		opts = {},
 	},
-	'simrat39/rust-tools.nvim',
-	{ 'windwp/nvim-autopairs', event = 'InsertEnter', opts = {} },
 	{
 		'nvimtools/none-ls.nvim',
 		dependencies = {
@@ -182,16 +164,6 @@ local plugins = {
 	--            MISC            --
 	--------------------------------
 
-	{ 'aserowy/tmux.nvim', opts = {} },
-	{
-		'iamcco/markdown-preview.nvim',
-		cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-		build = 'cd app && yarn install',
-		init = function()
-			vim.g.mkdp_filetypes = { 'markdown' }
-		end,
-		ft = { 'markdown' },
-	},
 }
 
 require('lazy').setup(plugins)

@@ -4,8 +4,8 @@ wk.add({
 		mode = { 'n' },
 		{ '<leader>d', '<cmd>bd<cr>', desc = 'Close Buffer' },
 		{ '<leader>q', '<cmd>qa!<cr>', desc = 'Quit' },
-		{ '<leader>e', '<cmd>Yazi<cr>', desc = 'Explorer (Yazi)' },
-		{ '<leader>E', '<cmd>Yazi cwd<cr>', desc = 'Explorer (Yazi) CWD' },
+		{ '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Explorer' },
+		{ '<leader>E', '<cmd>NvimTreeFindFile<cr>', desc = 'Explorer (Find File)' },
 		{ '<leader>s', '<cmd>vsplit<cr>', desc = 'Split' },
 		{ '<leader>S', '<cmd>noa w<cr>', desc = 'Save without formatting' },
 		{
@@ -14,7 +14,6 @@ wk.add({
 			desc = 'Package Manager (Lazy)',
 		},
 		{ '<leader>t', '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>', desc = 'Troubleshoot' },
-		{ '<leader>o', '<cmd>Oil<cr>', desc = 'Oil' },
 		{ '<leader>O', '<cmd>SymbolsOutline<cr>', desc = 'Symbols Outline' },
 		{ '<leader>c', '<cmd>nohl<cr>', desc = 'Clear Highlight' },
 		{ '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Undo Tree' },

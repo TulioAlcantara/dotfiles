@@ -82,3 +82,23 @@ keymap('t', '<C-h>', '<C-\\><C-N><C-w>h', t_opts)
 keymap('t', '<C-j>', '<C-\\><C-N><C-w>j', t_opts)
 keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', t_opts)
 keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', t_opts)
+
+--------------------------------
+--       USER COMMANDS         --
+--------------------------------
+
+-- :Messages — dump :messages output into a scratch buffer for easy
+-- navigation, searching, and yanking.
+vim.api.nvim_create_user_command('Messages', function()
+	local output = vim.fn.execute('messages')
+	vim.cmd('enew')
+	vim.bo.buftype = 'nofile'
+	vim.bo.bufhidden = 'wipe'
+	vim.bo.swapfile = false
+	vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(output, '\n'))
+end, { desc = 'Open :messages output in a scratch buffer' })
+
+-- :LspLog — open Neovim's LSP log file.
+vim.api.nvim_create_user_command('LspLog', function()
+	vim.cmd('edit ' .. vim.lsp.log.get_filename())
+end, { desc = 'Open the LSP log file' })
