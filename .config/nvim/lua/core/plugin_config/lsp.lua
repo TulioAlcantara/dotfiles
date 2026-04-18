@@ -2,9 +2,18 @@
 --           LSP              --
 --------------------------------
 
+-- Register filetypes used by LSP servers below so Neovim recognizes them
+vim.filetype.add({
+  extension = {
+    templ = 'templ',
+    hbs = 'handlebars',
+    handlebars = 'handlebars',
+  },
+})
+
 -- Global keybindings
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end)
 
 -- Set up diagnostic signs
 vim.diagnostic.config({
@@ -101,7 +110,7 @@ vim.lsp.config.ts_ls = {
   on_attach = function(client, bufnr)
     -- Disable formatting for ts_ls, use prettier instead
     client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
     on_attach(client, bufnr)
   end,
 }
@@ -113,7 +122,7 @@ vim.lsp.config.cssls = {
   on_attach = function(client, bufnr)
     -- Disable formatting for cssls
     client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
     on_attach(client, bufnr)
   end,
 }
@@ -130,7 +139,7 @@ vim.lsp.config.eslint = {
   on_attach = function(client, bufnr)
     -- Disable formatting for eslint
     client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
     on_attach(client, bufnr)
   end,
 }
@@ -142,7 +151,7 @@ vim.lsp.config.jsonls = {
   on_attach = function(client, bufnr)
     -- Disable formatting for jsonls
     client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
     on_attach(client, bufnr)
   end,
 }
@@ -159,7 +168,7 @@ vim.lsp.config.vue_ls = {
   on_attach = function(client, bufnr)
     -- Disable formatting for volar
     client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
     on_attach(client, bufnr)
   end,
 }
@@ -230,20 +239,26 @@ vim.lsp.config.astro = {
 }
 
 -- Mason LSP config for automatic installation
+local servers = {
+  'ts_ls',
+  'eslint',
+  'lua_ls',
+  'bashls',
+  'jsonls',
+  'cssls',
+  'html',
+  'vue_ls',
+  'glint',
+  'astro',
+}
+
 require('mason-lspconfig').setup({
-  ensure_installed = {
-    'ts_ls',
-    'eslint',
-    'lua_ls',
-    'bashls',
-    'jsonls',
-    'cssls',
-    'html',
-    'vue_ls',
-    'glint',
-    'astro',
-  },
+  ensure_installed = servers,
   automatic_installation = true,
+  -- Only auto-enable servers we've configured above. Prevents warnings for
+  -- Mason-installed binaries that aren't LSPs (e.g. stylua) or don't have
+  -- a vim.lsp.config entry yet (e.g. angularls, biome).
+  automatic_enable = servers,
 })
 
 --------------------------------
@@ -255,7 +270,6 @@ local lspkind = require('lspkind')
 
 cmp.setup({
   sources = {
-    { name = 'copilot' },
     { name = 'nvim_lsp' },
   },
   mapping = cmp.mapping.preset.insert({

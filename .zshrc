@@ -39,6 +39,9 @@ alias f=fzf
 alias g=lazygit
 alias y=yazi
 
+# Claude — alternate account for tzafon projects
+alias claude-tzafon='CLAUDE_CONFIG_DIR="$HOME/.claude-tzafon" claude'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -61,3 +64,6 @@ esac
 # Added by Antigravity
 export PATH="/Users/tulio/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
