@@ -1,21 +1,57 @@
 # .files
 
-Using [Arch Linux](https://archlinux.org/download/)
-
-_Optional_
-
-- Look up your Kernel version using `uname -r` and then install the equivalent [Linux Headers](https://archlinux.org/packages/core/x86_64/linux-headers/)
-- To check the current installed headers use `ls /lib/modules`
-- Nvidia Drivers using [Frogging](https://github.com/Frogging-Family/nvidia-all) or using installing the `nvidia` package
-
 ## Scripts
 
-- `move_here.sh` to update the repo
-- `setup.sh` to update your env
+- `move_here.sh` — pull configs from your home directory into this repo
+- `setup.sh` — apply configs from this repo to your home directory
 
-## Packages
+Both scripts auto-detect macOS vs Linux and apply the appropriate configs.
 
-### [Yay](https://github.com/Jguer/yay) (Package Manager)
+---
+
+## macOS
+
+### Homebrew
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+### CLI Tools
+
+    brew install neovim fzf zoxide direnv bat lsd duf yazi lazygit tmux
+
+### Nvim Dependencies
+
+    brew install ripgrep fd unzip
+    npm i -g neovim @fsouza/prettierd
+
+### Window Manager — [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+
+    brew install --cask aerospace
+
+### Shell
+
+[Oh-my-Zsh](https://ohmyz.sh) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k):
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+---
+
+## Linux (Arch)
+
+### i3 Dependencies
+
+    yay -S ttf-cascadia-code-nerd rofi polybar dunst pavucontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot dolphin kitty
+
+### CLI Tools
+
+    yay -S neovim yazi btop lsd zoxide duf tldr bat w3m openssh fzf ripgrep fd unzip lazygit
+
+### Nvim Dependencies
+
+    npm i -g neovim @fsouza/prettierd node-check-updates
+
+### [Yay](https://github.com/Jguer/yay) (AUR helper)
 
     pacman -Syu
     pacman -S --needed git base-devel
@@ -23,35 +59,26 @@ _Optional_
     cd yay
     makepkg -si
 
-### i3 Dependencies
-
-    yay -S ttf-cascadia-code-nerd  rofi polybar dunst pauvcontrol feh picom playerctl xdg-desktop-portal betterlockscreen flameshot dolphin kitty
-
-### Terminal Apps
-
-    yay -S yazi btop lsd zoxide duf tldr bat w3m open-ssh
-
-### Nvim Dependencies
-
-    yay -S neovim xclip fd fzf unzip ripgrep lazygit
-    npm i -g neovim @fsouza/prettierd node-check-updates
-
-## Shell
-
-[Oh-my-Zsh](https://ohmyz.sh) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme
+### Shell
 
     yay -S zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-## Runtime Version Manager
+---
 
-[asdf](https://asdf-vm.com/)
+## Shared
+
+### Runtime Version Managers
+
+[asdf](https://asdf-vm.com/):
 
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 
-[nvm](https://github.com/nvm-sh/nvm)
+[nvm](https://github.com/nvm-sh/nvm):
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-Just need to clone the repo, since we've already added the asdf plugin to our .zshrc file
+### Tmux Plugin Manager
+
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
