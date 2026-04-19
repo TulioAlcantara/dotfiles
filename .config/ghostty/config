@@ -1,0 +1,9 @@
+theme = Kanagawabones
+background-opacity = 0.95
+background-blur-radius = 20
+window-decoration = true
+font-family = CaskaydiaMono Nerd Font Propo
+
+keybind = cmd+s=text:\x13
+keybind = cmd+p=text:\x10
+keybind = cmd+f=text:\x06

@@ -3,8 +3,8 @@
 OS="$(uname -s)"
 
 # Common configs
-cp -r ~/.config/kitty ~/.config/nvim ~/.config/yazi ~/.config/bat .config/
-echo "Copied .config/ (kitty, nvim, yazi, bat)"
+cp -r ~/.config/kitty ~/.config/nvim ~/.config/yazi ~/.config/bat ~/.config/ghostty .config/
+echo "Copied .config/ (kitty, nvim, yazi, bat, ghostty)"
 cp ~/.tmux.conf .tmux.conf
 echo "Copied .tmux.conf"
 cp ~/.zshrc .zshrc
