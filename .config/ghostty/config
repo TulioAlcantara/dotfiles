@@ -1,8 +1,13 @@
 theme = Kanagawabones
-background-opacity = 0.95
+background-opacity = 1 
 background-blur-radius = 20
 window-decoration = true
 font-family = CaskaydiaMono Nerd Font Propo
+
+# Treat Option as Alt/Meta so tmux M-h/M-l/etc. work instead of
+# composing special characters. Accents come from US International
+# dead keys (' ^ ~), which don't use Option, so nothing is lost.
+macos-option-as-alt = true
 
 keybind = cmd+s=text:\x13
 keybind = cmd+p=text:\x10
