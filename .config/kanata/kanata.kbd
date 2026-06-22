@@ -1,0 +1,86 @@
+;; ============================================================
+;; kanata config - home row mods for MacBook keyboard
+;; Ported from Vial (Untitled.vil): CAGS home row mods
+;; Layers (symbols / nav / numpad) are commented out for now --
+;; testing home row mods first. Re-enable by uncommenting below.
+;; ============================================================
+
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold yes
+  ;; Only grab the built-in MacBook keyboard. External keyboards
+  ;; (e.g. the silakka54 running its own Vial firmware) are left
+  ;; untouched. Device names come from kanata's startup log.
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
+)
+
+;; Physical keys we remap. Everything not listed passes through
+;; untouched (process-unmapped-keys yes).
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  spc
+)
+
+;; ---------------- Aliases ----------------
+;; Home row mods: tap = letter, hold = modifier.
+;; tap-hold-release: if you press another key and release THIS one
+;; first, it resolves as a tap (good for fast typing).
+;; Timings (tap-timeout hold-timeout) mirror your Vial tap-dance:
+;; index/pinky 200ms, F & J 300ms.
+(defalias
+  ;; left hand
+  a (tap-hold-release 200 200 a lctl)
+  s (tap-hold-release 200 200 s lalt)
+  d (tap-hold-release 200 200 d lmet)
+  f (tap-hold-release 200 300 f lsft)
+  ;; right hand (use right-side mods so both shifts/cmds are independent)
+  j (tap-hold-release 200 300 j rsft)
+  k (tap-hold-release 200 200 k rmet)
+  l (tap-hold-release 200 200 l ralt)
+  ; (tap-hold-release 200 200 ; rctl)
+)
+
+;; ---------------- Base layer ----------------
+;; Only the home row is remapped; Space/Enter are plain for now.
+(deflayer base
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  spc
+)
+
+;; ============================================================
+;; Layers below are disabled for now. To re-enable:
+;;   1. Uncomment the layer(s) you want.
+;;   2. Add the thumb aliases back to defalias, e.g.:
+;;        spc (tap-hold-release 150 150 spc (layer-while-held nav))
+;;        ret (tap-hold-release 150 150 ret (layer-while-held sym))
+;;        osc (one-shot 2000 lctl)  ;; + osa/osg/oss for nav
+;;   3. Swap base-layer spc/ret to @spc / @ret.
+;; ============================================================
+
+;; ---------------- Layer 1: symbols (hold Enter) ----------------
+;; number row -> F1..F10 ; QWERT -> ! @ # $ % ; YUIOP -> ^ & * ( )
+;; (deflayer sym
+;;   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  _    _    _
+;;   _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  S-9  S-0  _    _    _
+;;   _    esc  \    grv  '    _    _    -    =    S-[  S-]  _    _
+;;   _    tab  S-\  S-grv S-'  _    _    S--  S-=  [    ]    _
+;;   _
+;; )
+
+;; ---------------- Layer 2: nav / media (hold Space) ----------------
+;; HJKL = arrows, left home row = oneshot mods, bottom row = media
+;; (deflayer nav
+;;   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  _    _    _
+;;   _    _    _    _    _    _    _    pgdn pgup _    del  _    _    _
+;;   _    @osc @osa @osg @oss _    left down up   rght home _    _
+;;   _    _    _    vold volu _    pp   mute prev next end  _
+;;   _
+;; )
