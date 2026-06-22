@@ -30,27 +30,28 @@
 ;; Home row mods: tap = letter, hold = modifier.
 ;; tap-hold-release: if you press another key and release THIS one
 ;; first, it resolves as a tap (good for fast typing).
-;; Timings (tap-timeout hold-timeout) mirror your Vial tap-dance:
-;; index/pinky 200ms, F & J 300ms.
+;; Timings: tap-timeout hold-timeout, 250ms across the board.
 (defalias
   ;; left hand
-  a (tap-hold-release 200 200 a lctl)
-  s (tap-hold-release 200 200 s lalt)
-  d (tap-hold-release 200 200 d lmet)
-  f (tap-hold-release 200 300 f lsft)
+  a (tap-hold-release 250 250 a lctl)
+  s (tap-hold-release 250 250 s lalt)
+  d (tap-hold-release 250 250 d lmet)
+  f (tap-hold-release 250 250 f lsft)
   ;; right hand (use right-side mods so both shifts/cmds are independent)
-  j (tap-hold-release 200 300 j rsft)
-  k (tap-hold-release 200 200 k rmet)
-  l (tap-hold-release 200 200 l ralt)
-  ; (tap-hold-release 200 200 ; rctl)
+  j (tap-hold-release 250 250 j rsft)
+  k (tap-hold-release 250 250 k rmet)
+  l (tap-hold-release 250 250 l ralt)
+  ; (tap-hold-release 250 250 ; rctl)
 )
 
 ;; ---------------- Base layer ----------------
-;; Only the home row is remapped; Space/Enter are plain for now.
+;; Home row is remapped; caps<->esc swapped (kanata grabs the built-in
+;; keyboard before macOS's native modifier remap, so we do it here).
+;; Space/Enter are plain for now.
 (deflayer base
-  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  caps 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
+  esc  @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   spc
 )
