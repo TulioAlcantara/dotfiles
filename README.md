@@ -74,6 +74,17 @@ If a device isn't grabbed (or you swap keyboards), run `kanata --cfg
 ~/.config/kanata/kanata.kbd` once in a terminal and copy the exact device name
 it prints into `macos-dev-names-include`.
 
+### Apps
+
+    brew install --cask maccy shottr betterdisplay scroll-reverser sanesidebuttons alt-tab
+
+- [Maccy](https://maccy.app) — clipboard history manager
+- [Shottr](https://shottr.cc) — lightweight screenshot & annotation tool
+- [BetterDisplay](https://github.com/waydabber/BetterDisplay) — display resolution, scaling & virtual screens
+- [Scroll Reverser](https://pilotmoon.com/scrollreverser) — independent scroll direction for mouse vs. trackpad
+- [SaneSideButtons](https://github.com/thealpa/SaneSideButtons) — back/forward for mouse side buttons
+- [AltTab](https://alt-tab-macos.netlify.app) — Windows-style window switcher
+
 ### Shell
 
 [Oh-my-Zsh](https://ohmyz.sh) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k):
