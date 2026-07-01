@@ -39,6 +39,21 @@ alias f=fzf
 alias g=lazygit
 alias y=yazi
 
+# List running apps (handy when menu-bar icons are hidden)
+# `apps`     -> apps with a UI presence (Dock/menu-bar), sorted
+# `apps -a`  -> include background-only agents too
+if [[ "$(uname)" == "Darwin" ]]; then
+  apps() {
+    if [[ "$1" == "-a" ]]; then
+      osascript -e 'tell application "System Events" to get name of every process' \
+        | tr ',' '\n' | sed 's/^ *//' | sort -f
+    else
+      osascript -e 'tell application "System Events" to get name of every process whose background only is false' \
+        | tr ',' '\n' | sed 's/^ *//' | sort -f
+    fi
+  }
+fi
+
 # Claude — alternate account for tzafon projects
 alias claude-tzafon='CLAUDE_CONFIG_DIR="$HOME/.claude-tzafon" claude'
 
