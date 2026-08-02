@@ -31,18 +31,19 @@
 ;; Home row mods: tap = letter, hold = modifier.
 ;; tap-hold-release: if you press another key and release THIS one
 ;; first, it resolves as a tap (good for fast typing).
-;; Timings: tap-timeout hold-timeout, 250ms across the board.
+;; Timings: tap-timeout hold-timeout, 175ms across the board
+;; (tuned for ~98 wpm typing speed).
 (defalias
   ;; left hand
-  a (tap-hold-release 250 250 a lctl)
-  s (tap-hold-release 250 250 s lalt)
-  d (tap-hold-release 250 250 d lmet)
-  f (tap-hold-release 250 250 f lsft)
+  a (tap-hold-release 175 175 a lctl)
+  s (tap-hold-release 175 175 s lalt)
+  d (tap-hold-release 175 175 d lmet)
+  f (tap-hold-release 175 175 f lsft)
   ;; right hand (use right-side mods so both shifts/cmds are independent)
-  j (tap-hold-release 250 250 j rsft)
-  k (tap-hold-release 250 250 k rmet)
-  l (tap-hold-release 250 250 l ralt)
-  ; (tap-hold-release 250 250 ; rctl)
+  j (tap-hold-release 175 175 j rsft)
+  k (tap-hold-release 175 175 k rmet)
+  l (tap-hold-release 175 175 l ralt)
+  ; (tap-hold-release 175 175 ; rctl)
 
   ;; Thumb: tap = space, hold = nav layer (arrows on HJKL).
   ;; Shorter hold-timeout (200) so the layer engages snappily.
