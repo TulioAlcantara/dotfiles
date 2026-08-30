@@ -17,8 +17,12 @@ if [[ "$OS" == "Darwin" ]]; then
   cp "$ZED_DIR/settings.json" "$ZED_DIR/keymap.json" "$ZED_DIR/debug.json" zed/
   echo "Copied Zed config"
 elif [[ "$OS" == "Linux" ]]; then
-  cp -r ~/.config/i3 ~/.config/polybar ~/.config/picom ~/.config/dunst ~/.config/rofi .config-i3/
-  echo "Copied .config-i3/ (i3, polybar, picom, dunst, rofi)"
+  if command -v i3 >/dev/null 2>&1; then
+    cp -r ~/.config/i3 ~/.config/polybar ~/.config/picom ~/.config/dunst ~/.config/rofi .config-i3/
+    echo "Copied .config-i3/ (i3, polybar, picom, dunst, rofi)"
+  else
+    echo "i3 not found — skipping i3/polybar/picom/dunst/rofi configs"
+  fi
 fi
 
 echo "Files updated!"

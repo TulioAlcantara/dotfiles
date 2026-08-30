@@ -129,7 +129,7 @@ local plugins = {
 	--            LSP             --
 	--------------------------------
 
-	'nvim-treesitter/nvim-treesitter',
+	{ 'nvim-treesitter/nvim-treesitter', branch = 'master' },
 	-- 'nvim-treesitter/nvim-treesitter-context',
 	'onsails/lspkind.nvim',
 	{

@@ -19,8 +19,12 @@ if [[ "$OS" == "Darwin" ]]; then
   cp zed/settings.json zed/keymap.json zed/debug.json "$ZED_DIR/"
   echo "Updated Zed config"
 elif [[ "$OS" == "Linux" ]]; then
-  cp -r .config-i3/. ~/.config
-  echo "Updated i3/polybar/picom/dunst/rofi"
+  if command -v i3 >/dev/null 2>&1; then
+    cp -r .config-i3/. ~/.config
+    echo "Updated i3/polybar/picom/dunst/rofi"
+  else
+    echo "i3 not found — skipping i3/polybar/picom/dunst/rofi configs"
+  fi
 fi
 
 echo "Setup completed!"
