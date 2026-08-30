@@ -2,6 +2,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Homebrew (Linux) — zsh has no /etc/zprofile on some distros (e.g. Bazzite)
+# to pick up /etc/profile.d/brew.sh, so wire it up here directly.
+if [[ "$(uname)" == "Linux" && -d /home/linuxbrew/.linuxbrew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
