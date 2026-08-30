@@ -61,23 +61,26 @@ alias claude-tzafon='CLAUDE_CONFIG_DIR="$HOME/.claude-tzafon" claude'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# bun completions
-[ -s "/Users/tulio/.bun/_bun" ] && source "/Users/tulio/.bun/_bun"
+if [[ "$(uname)" == "Darwin" ]]; then
+  # bun completions
+  [ -s "/Users/tulio/.bun/_bun" ] && source "/Users/tulio/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+  # bun
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/tulio/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+  # pnpm
+  export PNPM_HOME="/Users/tulio/Library/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+  # pnpm end
 
-# Added by Antigravity
-export PATH="/Users/tulio/.antigravity/antigravity/bin:$PATH"
+  # Added by Antigravity
+  export PATH="/Users/tulio/.antigravity/antigravity/bin:$PATH"
+fi
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # direnv
