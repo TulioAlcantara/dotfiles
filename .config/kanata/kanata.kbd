@@ -33,23 +33,24 @@
 ;; Home row mods: tap = letter, hold = modifier.
 ;; tap-hold-release: if you press another key and release THIS one
 ;; first, it resolves as a tap (good for fast typing).
-;; Timings: tap-timeout hold-timeout, 175ms across the board
+;; Timings: tap-timeout hold-timeout, 150ms across the board
 ;; (tuned for ~98 wpm typing speed).
 (defalias
   ;; left hand
-  a (tap-hold-release 175 175 a lctl)
-  s (tap-hold-release 175 175 s lalt)
-  d (tap-hold-release 175 175 d lmet)
-  f (tap-hold-release 175 175 f lsft)
+  a (tap-hold-release 150 150 a lctl)
+  s (tap-hold-release 150 150 s lalt)
+  d (tap-hold-release 150 150 d lmet)
+  f (tap-hold-release 150 150 f lsft)
   ;; right hand (use right-side mods so both shifts/cmds are independent)
-  j (tap-hold-release 175 175 j rsft)
-  k (tap-hold-release 175 175 k rmet)
-  l (tap-hold-release 175 175 l ralt)
-  ; (tap-hold-release 175 175 ; rctl)
+  j (tap-hold-release 150 150 j rsft)
+  k (tap-hold-release 150 150 k rmet)
+  l (tap-hold-release 150 150 l ralt)
+  ; (tap-hold-release 150 150 ; rctl)
 
   ;; Thumb: tap = space, hold = nav layer (arrows on HJKL).
-  ;; Shorter hold-timeout (200) so the layer engages snappily.
-  spc (tap-hold-release 200 200 spc (layer-while-held nav))
+  ;; tap-hold-press resolves on the next key's PRESS rather than its
+  ;; release, so normal typing rollover doesn't delay the space output.
+  spc (tap-hold-press 150 150 spc (layer-while-held nav))
 
   ;; F4 = Spotlight (Cmd+Space), since macOS Spotlight isn't an emittable key.
   spt (multi lmet spc)
