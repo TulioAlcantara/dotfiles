@@ -48,9 +48,10 @@
   ; (tap-hold-release 150 150 ; rctl)
 
   ;; Thumb: tap = space, hold = nav layer (arrows on HJKL).
-  ;; tap-hold-press resolves on the next key's PRESS rather than its
-  ;; release, so normal typing rollover doesn't delay the space output.
-  spc (tap-hold-press 150 150 spc (layer-while-held nav))
+  ;; tap-hold-release: resolves on the interrupting key's RELEASE, so
+  ;; fast typing rollover (pressing the next letter before releasing
+  ;; space) still resolves as a tap instead of misfiring the nav layer.
+  spc (tap-hold-release 150 150 spc (layer-while-held nav))
 
   ;; F4 = Spotlight (Cmd+Space), since macOS Spotlight isn't an emittable key.
   spt (multi lmet spc)
