@@ -4,7 +4,7 @@
 
 - `move_here.sh` — pull configs from your home directory into this repo
 - `setup.sh` — apply configs from this repo to your home directory
-- `kanata-setup.sh` — (macOS) install & load the kanata LaunchDaemons (run after `setup.sh`)
+- `kanata-setup.sh` — (macOS) install & load the Karabiner driver LaunchDaemon + kanata LaunchAgent (run after `setup.sh`)
 
 `move_here.sh` and `setup.sh` auto-detect macOS vs Linux and apply the appropriate configs.
 
@@ -49,26 +49,39 @@ kanata 1.11 talks to driver **v6.2.0** — newer driver releases may silently fa
 Then enable the extension in **System Settings → General → Login Items &
 Extensions → Driver Extensions** (`org.pqrs.Karabiner-DriverKit-VirtualHIDDevice`).
 
-Grant **Input Monitoring** to the kanata binary (System Settings → Privacy &
-Security → Input Monitoring → `+` → add `/opt/homebrew/bin/kanata`, or the real
-Cellar path if the symlink won't resolve). Daemons can't trigger the prompt, so
-this must be added manually.
+**Important — run kanata as a per-user LaunchAgent, not a system LaunchDaemon.**
+macOS's TCC can only grant Input Monitoring / Accessibility to a process
+attributed to a real login session. A system LaunchDaemon spawned at boot has
+no session and gets stuck denied forever, no matter what the toggle in System
+Settings shows. kanata also needs root to reach the Karabiner virtual-HID
+socket. `kanata-setup.sh` handles both: it installs `com.kanata.agent.plist`
+as a LaunchAgent that execs `sudo kanata`, backed by a scoped passwordless-sudo
+rule (`kanata-sudoers`) — root privilege, but still attributed to your GUI
+session.
 
-Install & load the daemons (driver daemon + kanata), which then auto-start at boot:
+Install & load everything (driver daemon as root, kanata as your user):
 
     ./kanata-setup.sh
 
-> **Note:** the plists in `.config/kanata/` hardcode absolute paths
-> (`/Users/tulio/...` and `/opt/homebrew/...`) because launchd does not expand
-> `~` or env vars. On a different machine/user, edit those paths in
-> `com.kanata.daemon.plist` (and the Cellar path if kanata isn't under
-> `/opt/homebrew`) before running `kanata-setup.sh`.
+> **Note:** the plists/sudoers file in `.config/kanata/` hardcode absolute
+> paths and the username (`/Users/tulio/...`, `/opt/homebrew/...`, `tulio` in
+> `kanata-sudoers`) because launchd does not expand `~` or env vars, and
+> sudoers rules are per-user. On a different machine/user, edit those in
+> `com.kanata.agent.plist` and `kanata-sudoers` (and the Cellar path if kanata
+> isn't under `/opt/homebrew`) before running `kanata-setup.sh`.
 
 Useful commands:
 
-    sudo launchctl kickstart -k system/com.kanata.daemon   # reload after editing kanata.kbd
-    sudo launchctl bootout system/com.kanata.daemon        # stop/disable
-    tail -f /var/log/kanata.log                            # logs
+    launchctl kickstart -k gui/$(id -u)/com.kanata.agent   # reload after editing kanata.kbd
+    launchctl bootout gui/$(id -u)/com.kanata.agent        # stop/disable
+    tail -f ~/Library/Logs/kanata.log                      # logs
+
+If kanata is stuck reporting "Input Monitoring permission not yet decided"
+even after granting it in System Settings, the grant is likely stale for the
+current build (common after a `brew upgrade kanata`, since the ad-hoc code
+signature changes). Remove the kanata entry from System Settings → Privacy &
+Security → Input Monitoring with `-`, then kickstart the agent again so it
+re-registers fresh and grants cleanly against your session.
 
 If a device isn't grabbed (or you swap keyboards), run `kanata --cfg
 ~/.config/kanata/kanata.kbd` once in a terminal and copy the exact device name

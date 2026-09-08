@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.kanata.daemon</string>
+    <string>com.kanata.agent</string>
     <key>ProgramArguments</key>
     <array>
+        <string>/usr/bin/sudo</string>
+        <string>-n</string>
         <string>/opt/homebrew/bin/kanata</string>
         <string>--nodelay</string>
         <string>--cfg</string>
@@ -16,8 +18,8 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/var/log/kanata.log</string>
+    <string>/Users/tulio/Library/Logs/kanata.log</string>
     <key>StandardErrorPath</key>
-    <string>/var/log/kanata.log</string>
+    <string>/Users/tulio/Library/Logs/kanata.log</string>
 </dict>
 </plist>

@@ -1,0 +1,1 @@
+tulio ALL=(root) NOPASSWD: /opt/homebrew/bin/kanata --nodelay --cfg /Users/tulio/.config/kanata/kanata.kbd
