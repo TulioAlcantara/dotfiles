@@ -62,12 +62,6 @@ local plugins = {
 	--          GIT               --
 	--------------------------------
 
-	{
-		'kdheepak/lazygit.nvim',
-		init = function()
-			vim.g.lazygit_floating_window_scaling_factor = 1
-		end,
-	},
 	'tpope/vim-fugitive',
 	'sindrets/diffview.nvim',
 	{
@@ -129,7 +123,7 @@ local plugins = {
 	--            LSP             --
 	--------------------------------
 
-	{ 'nvim-treesitter/nvim-treesitter', branch = 'master' },
+	'nvim-treesitter/nvim-treesitter',
 	-- 'nvim-treesitter/nvim-treesitter-context',
 	'onsails/lspkind.nvim',
 	{
@@ -163,7 +157,6 @@ local plugins = {
 	--------------------------------
 	--            MISC            --
 	--------------------------------
-
 }
 
 require('lazy').setup(plugins)
