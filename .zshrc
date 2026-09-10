@@ -88,6 +88,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# opencode
+export PATH=/Users/tulio/.opencode/bin:$PATH
