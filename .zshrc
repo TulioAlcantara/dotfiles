@@ -2,24 +2,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Homebrew (Linux) — zsh has no /etc/zprofile on some distros (e.g. Bazzite)
-# to pick up /etc/profile.d/brew.sh, so wire it up here directly.
+# ---- Homebrew (Linux) ----
+# zsh has no /etc/zprofile on some distros (e.g. Bazzite) to pick up
+# /etc/profile.d/brew.sh, so wire it up here directly.
 if [[ "$(uname)" == "Linux" && -d /home/linuxbrew/.linuxbrew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# Theme
+# ---- oh-my-zsh ----
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Plugins
 plugins=(git asdf sudo history vi-mode)
-
-# oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
-# fzf
+# ---- Shell tool integrations ----
 source <(fzf --zsh)
+eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -29,44 +28,7 @@ export NVM_DIR="$HOME/.nvm"
 # rust
 # source $HOME/.cargo/env
 
-# zoxide setup
-eval "$(zoxide init zsh)"
-
-# Aliases
-alias cat=bat
-alias ls=lsd
-alias df=duf
-alias c=clear
-
-# Apps
-alias t=tmux
-alias v=nvim
-alias f=fzf
-alias g=lazygit
-alias y=yazi
-
-# List running apps (handy when menu-bar icons are hidden)
-# `apps`     -> apps with a UI presence (Dock/menu-bar), sorted
-# `apps -a`  -> include background-only agents too
-if [[ "$(uname)" == "Darwin" ]]; then
-  apps() {
-    if [[ "$1" == "-a" ]]; then
-      osascript -e 'tell application "System Events" to get name of every process' \
-        | tr ',' '\n' | sed 's/^ *//' | sort -f
-    else
-      osascript -e 'tell application "System Events" to get name of every process whose background only is false' \
-        | tr ',' '\n' | sed 's/^ *//' | sort -f
-    fi
-  }
-fi
-
-# Claude — alternate account for tzafon projects
-alias claude-tzafon='CLAUDE_CONFIG_DIR="$HOME/.claude-tzafon" claude'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
+# ---- PATH & environment ----
 if [[ "$(uname)" == "Darwin" ]]; then
   # bun completions
   [ -s "/Users/tulio/.bun/_bun" ] && source "/Users/tulio/.bun/_bun"
@@ -90,8 +52,37 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
-# direnv
-eval "$(direnv hook zsh)"
-
 # opencode
 export PATH=/Users/tulio/.opencode/bin:$PATH
+
+# ---- Aliases ----
+alias cat=bat
+alias ls=lsd
+alias df=duf
+alias c=clear
+
+# Apps
+alias t=tmux
+alias v=nvim
+alias f=fzf
+alias g=lazygit
+alias y=yazi
+
+# ---- Functions ----
+# List running apps (handy when menu-bar icons are hidden)
+# `apps`     -> apps with a UI presence (Dock/menu-bar), sorted
+# `apps -a`  -> include background-only agents too
+if [[ "$(uname)" == "Darwin" ]]; then
+  apps() {
+    if [[ "$1" == "-a" ]]; then
+      osascript -e 'tell application "System Events" to get name of every process' \
+        | tr ',' '\n' | sed 's/^ *//' | sort -f
+    else
+      osascript -e 'tell application "System Events" to get name of every process whose background only is false' \
+        | tr ',' '\n' | sed 's/^ *//' | sort -f
+    fi
+  }
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
