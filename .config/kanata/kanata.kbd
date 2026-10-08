@@ -14,7 +14,7 @@
   ;; `kanata --list`.
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
-    "RK Bluetooth Keyboard"
+    "RK84RGB5.0 "
   )
 )
 
