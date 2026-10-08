@@ -1,21 +1,30 @@
-background = #2b2b2b
-foreground = #cdd6f4
+# Built from the BlackFox Zed theme's editor/syntax colors
+background = #1e1f22
+foreground = #c2d1e0
 cursor-color = #f5e0dc
-selection-background = #585b70
-selection-foreground = #cdd6f4
-palette = 0=#45475a
-palette = 1=#e19b9b
-palette = 2=#a2e4d2
-palette = 3=#f9e2af
-palette = 4=#89b4fa
-palette = 5=#f5c2e7
-palette = 6=#b4befe
-palette = 7=#cdd6f4
-palette = 8=#a6adc8
+selection-background = #353741
+selection-foreground = #c2d1e0
+# black / bright black: panel + line-number grey
+palette = 0=#2b2d30
+palette = 8=#6f737a
+# red: strings / emphasis
+palette = 1=#cc7270
 palette = 9=#e19b9b
+# green: comments / literals
+palette = 2=#759963
 palette = 10=#a2e4d2
+# yellow: functions / brackets
+palette = 3=#ffc66d
 palette = 11=#f9e2af
-palette = 12=#89b4fa
+# blue: keywords / accents
+palette = 4=#6a95eb
+palette = 12=#a5d0f8
+# magenta: special variables
+palette = 5=#dcb8d5
 palette = 13=#f5c2e7
-palette = 14=#b4befe
-palette = 15=#bac2de
+# cyan: types / enums
+palette = 6=#47c9a7
+palette = 14=#94e2d5
+# white: text
+palette = 7=#c2d1e0
+palette = 15=#dfe1e5
