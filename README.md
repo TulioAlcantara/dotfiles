@@ -22,7 +22,7 @@
 
 ### Nvim Dependencies
 
-    brew install ripgrep fd unzip
+    brew install ripgrep fd unzip stylua
     npm i -g neovim @fsouza/prettierd
 
 ### Window Manager — [AeroSpace](https://github.com/nikitabobko/AeroSpace)
@@ -115,7 +115,7 @@ it prints into `macos-dev-names-include`.
 
 ### CLI Tools
 
-    yay -S neovim yazi btop lsd zoxide duf tldr bat w3m openssh fzf ripgrep fd unzip lazygit
+    yay -S neovim yazi btop lsd zoxide duf tldr bat w3m openssh fzf ripgrep fd unzip lazygit tmux direnv stylua
 
 ### Nvim Dependencies
 
